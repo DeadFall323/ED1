@@ -1,0 +1,11 @@
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/main.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/main1.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/main2.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/main3.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/main4.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/main5.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/main6.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/main7.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/run_all.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/OneDrive/Kawan/Matérias/ED1/Padrão/cmake-build-debug/CMakeFiles/rebuild_cache.dir
