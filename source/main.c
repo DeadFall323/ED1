@@ -3,15 +3,6 @@
 
 
 int main(void) {
-    //Escreva um programa que leia cinco notas, calcule a media e mostre o
-    //resultado.
-    //Faça nos três laços de repetição.
-
-    float vetor[5];
-    printf("Insira as 5 notas do aluno \n");
-    printf("insira a primeira nota: \n");
-    for (int i=0;i<5;i++) {
-        scanf("%f",vetor[i]);
-    }
+    printf("Aqui inicia o trabalho de ED!\n");
     return 0;
 }
