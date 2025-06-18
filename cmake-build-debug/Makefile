@@ -57,10 +57,10 @@ RM = /home/kawandias/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1
+CMAKE_SOURCE_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1/ED1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug/CMakeFiles /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,6 +117,58 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named atividades
+
+# Build rule for target.
+atividades: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 atividades
+.PHONY : atividades
+
+# fast build rule for target.
+atividades/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/build
+.PHONY : atividades/fast
+
+#=============================================================================
+# Target rules for targets named checkin
+
+# Build rule for target.
+checkin: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 checkin
+.PHONY : checkin
+
+# fast build rule for target.
+checkin/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/build
+.PHONY : checkin/fast
+
+#=============================================================================
+# Target rules for targets named desfazer
+
+# Build rule for target.
+desfazer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 desfazer
+.PHONY : desfazer
+
+# fast build rule for target.
+desfazer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/build
+.PHONY : desfazer/fast
+
+#=============================================================================
+# Target rules for targets named eventos
+
+# Build rule for target.
+eventos: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eventos
+.PHONY : eventos
+
+# fast build rule for target.
+eventos/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/build
+.PHONY : eventos/fast
+
+#=============================================================================
 # Target rules for targets named main
 
 # Build rule for target.
@@ -130,95 +182,30 @@ main/fast:
 .PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named main1
+# Target rules for targets named ordenacao
 
 # Build rule for target.
-main1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main1
-.PHONY : main1
+ordenacao: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ordenacao
+.PHONY : ordenacao
 
 # fast build rule for target.
-main1/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/build
-.PHONY : main1/fast
+ordenacao/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/build
+.PHONY : ordenacao/fast
 
 #=============================================================================
-# Target rules for targets named main2
+# Target rules for targets named participantes
 
 # Build rule for target.
-main2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main2
-.PHONY : main2
+participantes: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 participantes
+.PHONY : participantes
 
 # fast build rule for target.
-main2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/build
-.PHONY : main2/fast
-
-#=============================================================================
-# Target rules for targets named main3
-
-# Build rule for target.
-main3: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main3
-.PHONY : main3
-
-# fast build rule for target.
-main3/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main3.dir/build.make CMakeFiles/main3.dir/build
-.PHONY : main3/fast
-
-#=============================================================================
-# Target rules for targets named main4
-
-# Build rule for target.
-main4: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main4
-.PHONY : main4
-
-# fast build rule for target.
-main4/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main4.dir/build.make CMakeFiles/main4.dir/build
-.PHONY : main4/fast
-
-#=============================================================================
-# Target rules for targets named main5
-
-# Build rule for target.
-main5: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main5
-.PHONY : main5
-
-# fast build rule for target.
-main5/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main5.dir/build.make CMakeFiles/main5.dir/build
-.PHONY : main5/fast
-
-#=============================================================================
-# Target rules for targets named main6
-
-# Build rule for target.
-main6: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main6
-.PHONY : main6
-
-# fast build rule for target.
-main6/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main6.dir/build.make CMakeFiles/main6.dir/build
-.PHONY : main6/fast
-
-#=============================================================================
-# Target rules for targets named main7
-
-# Build rule for target.
-main7: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main7
-.PHONY : main7
-
-# fast build rule for target.
-main7/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main7.dir/build.make CMakeFiles/main7.dir/build
-.PHONY : main7/fast
+participantes/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/build
+.PHONY : participantes/fast
 
 #=============================================================================
 # Target rules for targets named run_all
@@ -232,6 +219,174 @@ run_all: cmake_check_build_system
 run_all/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_all.dir/build.make CMakeFiles/run_all.dir/build
 .PHONY : run_all/fast
+
+source/atividades.o: source/atividades.c.o
+.PHONY : source/atividades.o
+
+# target to build an object file
+source/atividades.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/atividades.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/atividades.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/atividades.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/atividades.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/atividades.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/atividades.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/atividades.c.o
+.PHONY : source/atividades.c.o
+
+source/atividades.i: source/atividades.c.i
+.PHONY : source/atividades.i
+
+# target to preprocess a source file
+source/atividades.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/atividades.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/atividades.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/atividades.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/atividades.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/atividades.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/atividades.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/atividades.c.i
+.PHONY : source/atividades.c.i
+
+source/atividades.s: source/atividades.c.s
+.PHONY : source/atividades.s
+
+# target to generate assembly for a file
+source/atividades.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/atividades.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/atividades.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/atividades.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/atividades.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/atividades.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/atividades.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/atividades.c.s
+.PHONY : source/atividades.c.s
+
+source/checkin.o: source/checkin.c.o
+.PHONY : source/checkin.o
+
+# target to build an object file
+source/checkin.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/checkin.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/checkin.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/checkin.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/checkin.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/checkin.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/checkin.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/checkin.c.o
+.PHONY : source/checkin.c.o
+
+source/checkin.i: source/checkin.c.i
+.PHONY : source/checkin.i
+
+# target to preprocess a source file
+source/checkin.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/checkin.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/checkin.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/checkin.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/checkin.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/checkin.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/checkin.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/checkin.c.i
+.PHONY : source/checkin.c.i
+
+source/checkin.s: source/checkin.c.s
+.PHONY : source/checkin.s
+
+# target to generate assembly for a file
+source/checkin.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/checkin.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/checkin.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/checkin.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/checkin.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/checkin.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/checkin.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/checkin.c.s
+.PHONY : source/checkin.c.s
+
+source/desfazer.o: source/desfazer.c.o
+.PHONY : source/desfazer.o
+
+# target to build an object file
+source/desfazer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/desfazer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/desfazer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/desfazer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/desfazer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/desfazer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/desfazer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/desfazer.c.o
+.PHONY : source/desfazer.c.o
+
+source/desfazer.i: source/desfazer.c.i
+.PHONY : source/desfazer.i
+
+# target to preprocess a source file
+source/desfazer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/desfazer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/desfazer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/desfazer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/desfazer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/desfazer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/desfazer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/desfazer.c.i
+.PHONY : source/desfazer.c.i
+
+source/desfazer.s: source/desfazer.c.s
+.PHONY : source/desfazer.s
+
+# target to generate assembly for a file
+source/desfazer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/desfazer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/desfazer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/desfazer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/desfazer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/desfazer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/desfazer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/desfazer.c.s
+.PHONY : source/desfazer.c.s
+
+source/eventos.o: source/eventos.c.o
+.PHONY : source/eventos.o
+
+# target to build an object file
+source/eventos.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/eventos.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/eventos.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/eventos.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/eventos.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/eventos.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/eventos.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/eventos.c.o
+.PHONY : source/eventos.c.o
+
+source/eventos.i: source/eventos.c.i
+.PHONY : source/eventos.i
+
+# target to preprocess a source file
+source/eventos.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/eventos.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/eventos.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/eventos.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/eventos.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/eventos.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/eventos.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/eventos.c.i
+.PHONY : source/eventos.c.i
+
+source/eventos.s: source/eventos.c.s
+.PHONY : source/eventos.s
+
+# target to generate assembly for a file
+source/eventos.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/eventos.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/eventos.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/eventos.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/eventos.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/eventos.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/eventos.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/eventos.c.s
+.PHONY : source/eventos.c.s
 
 source/main.o: source/main.c.o
 .PHONY : source/main.o
@@ -257,173 +412,89 @@ source/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/main.c.s
 .PHONY : source/main.c.s
 
-source/main1.o: source/main1.c.o
-.PHONY : source/main1.o
+source/ordenacao.o: source/ordenacao.c.o
+.PHONY : source/ordenacao.o
 
 # target to build an object file
-source/main1.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/source/main1.c.o
-.PHONY : source/main1.c.o
+source/ordenacao.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/ordenacao.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/ordenacao.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/ordenacao.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/ordenacao.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/ordenacao.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/ordenacao.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/ordenacao.c.o
+.PHONY : source/ordenacao.c.o
 
-source/main1.i: source/main1.c.i
-.PHONY : source/main1.i
+source/ordenacao.i: source/ordenacao.c.i
+.PHONY : source/ordenacao.i
 
 # target to preprocess a source file
-source/main1.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/source/main1.c.i
-.PHONY : source/main1.c.i
+source/ordenacao.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/ordenacao.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/ordenacao.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/ordenacao.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/ordenacao.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/ordenacao.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/ordenacao.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/ordenacao.c.i
+.PHONY : source/ordenacao.c.i
 
-source/main1.s: source/main1.c.s
-.PHONY : source/main1.s
+source/ordenacao.s: source/ordenacao.c.s
+.PHONY : source/ordenacao.s
 
 # target to generate assembly for a file
-source/main1.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main1.dir/build.make CMakeFiles/main1.dir/source/main1.c.s
-.PHONY : source/main1.c.s
+source/ordenacao.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/ordenacao.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/ordenacao.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/ordenacao.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/ordenacao.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/ordenacao.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/ordenacao.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/ordenacao.c.s
+.PHONY : source/ordenacao.c.s
 
-source/main2.o: source/main2.c.o
-.PHONY : source/main2.o
+source/participantes.o: source/participantes.c.o
+.PHONY : source/participantes.o
 
 # target to build an object file
-source/main2.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/source/main2.c.o
-.PHONY : source/main2.c.o
+source/participantes.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/participantes.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/participantes.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/participantes.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/participantes.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/participantes.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/participantes.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/participantes.c.o
+.PHONY : source/participantes.c.o
 
-source/main2.i: source/main2.c.i
-.PHONY : source/main2.i
-
-# target to preprocess a source file
-source/main2.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/source/main2.c.i
-.PHONY : source/main2.c.i
-
-source/main2.s: source/main2.c.s
-.PHONY : source/main2.s
-
-# target to generate assembly for a file
-source/main2.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/source/main2.c.s
-.PHONY : source/main2.c.s
-
-source/main3.o: source/main3.c.o
-.PHONY : source/main3.o
-
-# target to build an object file
-source/main3.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main3.dir/build.make CMakeFiles/main3.dir/source/main3.c.o
-.PHONY : source/main3.c.o
-
-source/main3.i: source/main3.c.i
-.PHONY : source/main3.i
+source/participantes.i: source/participantes.c.i
+.PHONY : source/participantes.i
 
 # target to preprocess a source file
-source/main3.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main3.dir/build.make CMakeFiles/main3.dir/source/main3.c.i
-.PHONY : source/main3.c.i
+source/participantes.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/participantes.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/participantes.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/participantes.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/participantes.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/participantes.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/participantes.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/participantes.c.i
+.PHONY : source/participantes.c.i
 
-source/main3.s: source/main3.c.s
-.PHONY : source/main3.s
-
-# target to generate assembly for a file
-source/main3.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main3.dir/build.make CMakeFiles/main3.dir/source/main3.c.s
-.PHONY : source/main3.c.s
-
-source/main4.o: source/main4.c.o
-.PHONY : source/main4.o
-
-# target to build an object file
-source/main4.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main4.dir/build.make CMakeFiles/main4.dir/source/main4.c.o
-.PHONY : source/main4.c.o
-
-source/main4.i: source/main4.c.i
-.PHONY : source/main4.i
-
-# target to preprocess a source file
-source/main4.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main4.dir/build.make CMakeFiles/main4.dir/source/main4.c.i
-.PHONY : source/main4.c.i
-
-source/main4.s: source/main4.c.s
-.PHONY : source/main4.s
+source/participantes.s: source/participantes.c.s
+.PHONY : source/participantes.s
 
 # target to generate assembly for a file
-source/main4.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main4.dir/build.make CMakeFiles/main4.dir/source/main4.c.s
-.PHONY : source/main4.c.s
-
-source/main5.o: source/main5.c.o
-.PHONY : source/main5.o
-
-# target to build an object file
-source/main5.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main5.dir/build.make CMakeFiles/main5.dir/source/main5.c.o
-.PHONY : source/main5.c.o
-
-source/main5.i: source/main5.c.i
-.PHONY : source/main5.i
-
-# target to preprocess a source file
-source/main5.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main5.dir/build.make CMakeFiles/main5.dir/source/main5.c.i
-.PHONY : source/main5.c.i
-
-source/main5.s: source/main5.c.s
-.PHONY : source/main5.s
-
-# target to generate assembly for a file
-source/main5.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main5.dir/build.make CMakeFiles/main5.dir/source/main5.c.s
-.PHONY : source/main5.c.s
-
-source/main6.o: source/main6.c.o
-.PHONY : source/main6.o
-
-# target to build an object file
-source/main6.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main6.dir/build.make CMakeFiles/main6.dir/source/main6.c.o
-.PHONY : source/main6.c.o
-
-source/main6.i: source/main6.c.i
-.PHONY : source/main6.i
-
-# target to preprocess a source file
-source/main6.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main6.dir/build.make CMakeFiles/main6.dir/source/main6.c.i
-.PHONY : source/main6.c.i
-
-source/main6.s: source/main6.c.s
-.PHONY : source/main6.s
-
-# target to generate assembly for a file
-source/main6.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main6.dir/build.make CMakeFiles/main6.dir/source/main6.c.s
-.PHONY : source/main6.c.s
-
-source/main7.o: source/main7.c.o
-.PHONY : source/main7.o
-
-# target to build an object file
-source/main7.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main7.dir/build.make CMakeFiles/main7.dir/source/main7.c.o
-.PHONY : source/main7.c.o
-
-source/main7.i: source/main7.c.i
-.PHONY : source/main7.i
-
-# target to preprocess a source file
-source/main7.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main7.dir/build.make CMakeFiles/main7.dir/source/main7.c.i
-.PHONY : source/main7.c.i
-
-source/main7.s: source/main7.c.s
-.PHONY : source/main7.s
-
-# target to generate assembly for a file
-source/main7.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main7.dir/build.make CMakeFiles/main7.dir/source/main7.c.s
-.PHONY : source/main7.c.s
+source/participantes.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/atividades.dir/build.make CMakeFiles/atividades.dir/source/participantes.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkin.dir/build.make CMakeFiles/checkin.dir/source/participantes.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/desfazer.dir/build.make CMakeFiles/desfazer.dir/source/participantes.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eventos.dir/build.make CMakeFiles/eventos.dir/source/participantes.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/source/participantes.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ordenacao.dir/build.make CMakeFiles/ordenacao.dir/source/participantes.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/participantes.dir/build.make CMakeFiles/participantes.dir/source/participantes.c.s
+.PHONY : source/participantes.c.s
 
 # Help Target
 help:
@@ -434,38 +505,34 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... run_all"
+	@echo "... atividades"
+	@echo "... checkin"
+	@echo "... desfazer"
+	@echo "... eventos"
 	@echo "... main"
-	@echo "... main1"
-	@echo "... main2"
-	@echo "... main3"
-	@echo "... main4"
-	@echo "... main5"
-	@echo "... main6"
-	@echo "... main7"
+	@echo "... ordenacao"
+	@echo "... participantes"
+	@echo "... source/atividades.o"
+	@echo "... source/atividades.i"
+	@echo "... source/atividades.s"
+	@echo "... source/checkin.o"
+	@echo "... source/checkin.i"
+	@echo "... source/checkin.s"
+	@echo "... source/desfazer.o"
+	@echo "... source/desfazer.i"
+	@echo "... source/desfazer.s"
+	@echo "... source/eventos.o"
+	@echo "... source/eventos.i"
+	@echo "... source/eventos.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"
-	@echo "... source/main1.o"
-	@echo "... source/main1.i"
-	@echo "... source/main1.s"
-	@echo "... source/main2.o"
-	@echo "... source/main2.i"
-	@echo "... source/main2.s"
-	@echo "... source/main3.o"
-	@echo "... source/main3.i"
-	@echo "... source/main3.s"
-	@echo "... source/main4.o"
-	@echo "... source/main4.i"
-	@echo "... source/main4.s"
-	@echo "... source/main5.o"
-	@echo "... source/main5.i"
-	@echo "... source/main5.s"
-	@echo "... source/main6.o"
-	@echo "... source/main6.i"
-	@echo "... source/main6.s"
-	@echo "... source/main7.o"
-	@echo "... source/main7.i"
-	@echo "... source/main7.s"
+	@echo "... source/ordenacao.o"
+	@echo "... source/ordenacao.i"
+	@echo "... source/ordenacao.s"
+	@echo "... source/participantes.o"
+	@echo "... source/participantes.i"
+	@echo "... source/participantes.s"
 .PHONY : help
 
 

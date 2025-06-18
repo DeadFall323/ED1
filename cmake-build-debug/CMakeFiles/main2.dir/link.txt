@@ -1,1 +1,0 @@
-/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/main2.dir/link.d CMakeFiles/main2.dir/source/main2.c.o -o /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main2

@@ -8,8 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/kawandias/Documentos/TrabalhoED1/ED1/source/main.c" "CMakeFiles/main.dir/source/main.c.o" "gcc" "CMakeFiles/main.dir/source/main.c.o.d"
-  "" "/home/kawandias/Documentos/TrabalhoED1/ED1/executable/main" "gcc" "CMakeFiles/main.dir/link.d"
+  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/atividades.c" "CMakeFiles/main.dir/source/atividades.c.o" "gcc" "CMakeFiles/main.dir/source/atividades.c.o.d"
+  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/checkin.c" "CMakeFiles/main.dir/source/checkin.c.o" "gcc" "CMakeFiles/main.dir/source/checkin.c.o.d"
+  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/desfazer.c" "CMakeFiles/main.dir/source/desfazer.c.o" "gcc" "CMakeFiles/main.dir/source/desfazer.c.o.d"
+  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/eventos.c" "CMakeFiles/main.dir/source/eventos.c.o" "gcc" "CMakeFiles/main.dir/source/eventos.c.o.d"
+  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/main.c" "CMakeFiles/main.dir/source/main.c.o" "gcc" "CMakeFiles/main.dir/source/main.c.o.d"
+  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/ordenacao.c" "CMakeFiles/main.dir/source/ordenacao.c.o" "gcc" "CMakeFiles/main.dir/source/ordenacao.c.o.d"
+  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/participantes.c" "CMakeFiles/main.dir/source/participantes.c.o" "gcc" "CMakeFiles/main.dir/source/participantes.c.o.d"
+  "" "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main" "gcc" "CMakeFiles/main.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

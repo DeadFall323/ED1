@@ -20,7 +20,19 @@ file(GLOB SOURCES ${CMAKE_SOURCE_DIR}/source/*.c)
 foreach(SOURCE_FILE ${SOURCES})
     get_filename_component(EXEC_NAME ${SOURCE_FILE} NAME_WE)
 
-    add_executable(${EXEC_NAME} ${SOURCE_FILE})
+    add_executable(${EXEC_NAME} ${SOURCE_FILE}
+            headers/eventos.h
+            source/eventos.c
+            headers/atividades.h
+            source/atividades.c
+            headers/participantes.h
+            source/participantes.c
+            headers/checkin.h
+            source/checkin.c
+            headers/desfazer.h
+            source/desfazer.c
+            headers/ordenacao.h
+            source/ordenacao.c)
 
     # Garantir que cada executável seja colocado na pasta 'executable'
     set_target_properties(${EXEC_NAME} PROPERTIES

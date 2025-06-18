@@ -53,10 +53,10 @@ RM = /home/kawandias/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1
+CMAKE_SOURCE_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1/ED1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -73,35 +73,131 @@ CMakeFiles/main.dir/codegen:
 .PHONY : CMakeFiles/main.dir/codegen
 
 CMakeFiles/main.dir/source/main.c.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/source/main.c.o: /home/kawandias/Documentos/TrabalhoED1/ED1/source/main.c
+CMakeFiles/main.dir/source/main.c.o: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/main.c
 CMakeFiles/main.dir/source/main.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/source/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/source/main.c.o -MF CMakeFiles/main.dir/source/main.c.o.d -o CMakeFiles/main.dir/source/main.c.o -c /home/kawandias/Documentos/TrabalhoED1/ED1/source/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/source/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/source/main.c.o -MF CMakeFiles/main.dir/source/main.c.o.d -o CMakeFiles/main.dir/source/main.c.o -c /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/main.c
 
 CMakeFiles/main.dir/source/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/source/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/kawandias/Documentos/TrabalhoED1/ED1/source/main.c > CMakeFiles/main.dir/source/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/main.c > CMakeFiles/main.dir/source/main.c.i
 
 CMakeFiles/main.dir/source/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/source/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/kawandias/Documentos/TrabalhoED1/ED1/source/main.c -o CMakeFiles/main.dir/source/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/main.c -o CMakeFiles/main.dir/source/main.c.s
+
+CMakeFiles/main.dir/source/eventos.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/source/eventos.c.o: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/eventos.c
+CMakeFiles/main.dir/source/eventos.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/source/eventos.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/source/eventos.c.o -MF CMakeFiles/main.dir/source/eventos.c.o.d -o CMakeFiles/main.dir/source/eventos.c.o -c /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/eventos.c
+
+CMakeFiles/main.dir/source/eventos.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/source/eventos.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/eventos.c > CMakeFiles/main.dir/source/eventos.c.i
+
+CMakeFiles/main.dir/source/eventos.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/source/eventos.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/eventos.c -o CMakeFiles/main.dir/source/eventos.c.s
+
+CMakeFiles/main.dir/source/atividades.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/source/atividades.c.o: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/atividades.c
+CMakeFiles/main.dir/source/atividades.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main.dir/source/atividades.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/source/atividades.c.o -MF CMakeFiles/main.dir/source/atividades.c.o.d -o CMakeFiles/main.dir/source/atividades.c.o -c /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/atividades.c
+
+CMakeFiles/main.dir/source/atividades.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/source/atividades.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/atividades.c > CMakeFiles/main.dir/source/atividades.c.i
+
+CMakeFiles/main.dir/source/atividades.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/source/atividades.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/atividades.c -o CMakeFiles/main.dir/source/atividades.c.s
+
+CMakeFiles/main.dir/source/participantes.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/source/participantes.c.o: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/participantes.c
+CMakeFiles/main.dir/source/participantes.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main.dir/source/participantes.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/source/participantes.c.o -MF CMakeFiles/main.dir/source/participantes.c.o.d -o CMakeFiles/main.dir/source/participantes.c.o -c /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/participantes.c
+
+CMakeFiles/main.dir/source/participantes.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/source/participantes.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/participantes.c > CMakeFiles/main.dir/source/participantes.c.i
+
+CMakeFiles/main.dir/source/participantes.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/source/participantes.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/participantes.c -o CMakeFiles/main.dir/source/participantes.c.s
+
+CMakeFiles/main.dir/source/checkin.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/source/checkin.c.o: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/checkin.c
+CMakeFiles/main.dir/source/checkin.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main.dir/source/checkin.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/source/checkin.c.o -MF CMakeFiles/main.dir/source/checkin.c.o.d -o CMakeFiles/main.dir/source/checkin.c.o -c /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/checkin.c
+
+CMakeFiles/main.dir/source/checkin.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/source/checkin.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/checkin.c > CMakeFiles/main.dir/source/checkin.c.i
+
+CMakeFiles/main.dir/source/checkin.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/source/checkin.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/checkin.c -o CMakeFiles/main.dir/source/checkin.c.s
+
+CMakeFiles/main.dir/source/desfazer.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/source/desfazer.c.o: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/desfazer.c
+CMakeFiles/main.dir/source/desfazer.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main.dir/source/desfazer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/source/desfazer.c.o -MF CMakeFiles/main.dir/source/desfazer.c.o.d -o CMakeFiles/main.dir/source/desfazer.c.o -c /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/desfazer.c
+
+CMakeFiles/main.dir/source/desfazer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/source/desfazer.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/desfazer.c > CMakeFiles/main.dir/source/desfazer.c.i
+
+CMakeFiles/main.dir/source/desfazer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/source/desfazer.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/desfazer.c -o CMakeFiles/main.dir/source/desfazer.c.s
+
+CMakeFiles/main.dir/source/ordenacao.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/source/ordenacao.c.o: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/ordenacao.c
+CMakeFiles/main.dir/source/ordenacao.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/main.dir/source/ordenacao.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/source/ordenacao.c.o -MF CMakeFiles/main.dir/source/ordenacao.c.o.d -o CMakeFiles/main.dir/source/ordenacao.c.o -c /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/ordenacao.c
+
+CMakeFiles/main.dir/source/ordenacao.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/source/ordenacao.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/ordenacao.c > CMakeFiles/main.dir/source/ordenacao.c.i
+
+CMakeFiles/main.dir/source/ordenacao.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/source/ordenacao.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/ordenacao.c -o CMakeFiles/main.dir/source/ordenacao.c.s
 
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/source/main.c.o"
+"CMakeFiles/main.dir/source/main.c.o" \
+"CMakeFiles/main.dir/source/eventos.c.o" \
+"CMakeFiles/main.dir/source/atividades.c.o" \
+"CMakeFiles/main.dir/source/participantes.c.o" \
+"CMakeFiles/main.dir/source/checkin.c.o" \
+"CMakeFiles/main.dir/source/desfazer.c.o" \
+"CMakeFiles/main.dir/source/ordenacao.c.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-/home/kawandias/Documentos/TrabalhoED1/ED1/executable/main: CMakeFiles/main.dir/source/main.c.o
-/home/kawandias/Documentos/TrabalhoED1/ED1/executable/main: CMakeFiles/main.dir/build.make
-/home/kawandias/Documentos/TrabalhoED1/ED1/executable/main: CMakeFiles/main.dir/compiler_depend.ts
-/home/kawandias/Documentos/TrabalhoED1/ED1/executable/main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main"
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/source/main.c.o
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/source/eventos.c.o
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/source/atividades.c.o
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/source/participantes.c.o
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/source/checkin.c.o
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/source/desfazer.c.o
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/source/ordenacao.c.o
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/build.make
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/compiler_depend.ts
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: CMakeFiles/main.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/main.dir/build: /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main
+CMakeFiles/main.dir/build: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main
 .PHONY : CMakeFiles/main.dir/build
 
 CMakeFiles/main.dir/clean:
@@ -109,6 +205,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kawandias/Documentos/TrabalhoED1/ED1 /home/kawandias/Documentos/TrabalhoED1/ED1 /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kawandias/Documentos/TrabalhoED1/ED1/ED1 /home/kawandias/Documentos/TrabalhoED1/ED1/ED1 /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles/main.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/main.dir/depend
 

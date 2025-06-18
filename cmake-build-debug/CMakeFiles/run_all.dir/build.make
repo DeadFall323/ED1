@@ -53,10 +53,10 @@ RM = /home/kawandias/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1
+CMAKE_SOURCE_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1/ED1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug
 
 # Utility rule file for run_all.
 
@@ -66,15 +66,14 @@ include CMakeFiles/run_all.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/run_all.dir/progress.make
 
-CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main
-CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main1
-CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main2
-CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main3
-CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main4
-CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main5
-CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main6
-CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/executable/main7
-	/home/kawandias/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -P /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug/script_runner.cmake
+CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/atividades
+CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/checkin
+CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/desfazer
+CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/eventos
+CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main
+CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/ordenacao
+CMakeFiles/run_all: /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/participantes
+	/home/kawandias/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -P /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/script_runner.cmake
 
 CMakeFiles/run_all.dir/codegen:
 .PHONY : CMakeFiles/run_all.dir/codegen
@@ -92,6 +91,6 @@ CMakeFiles/run_all.dir/clean:
 .PHONY : CMakeFiles/run_all.dir/clean
 
 CMakeFiles/run_all.dir/depend:
-	cd /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kawandias/Documentos/TrabalhoED1/ED1 /home/kawandias/Documentos/TrabalhoED1/ED1 /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug /home/kawandias/Documentos/TrabalhoED1/ED1/cmake-build-debug/CMakeFiles/run_all.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kawandias/Documentos/TrabalhoED1/ED1/ED1 /home/kawandias/Documentos/TrabalhoED1/ED1/ED1 /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug /home/kawandias/Documentos/TrabalhoED1/ED1/ED1/cmake-build-debug/CMakeFiles/run_all.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/run_all.dir/depend
 

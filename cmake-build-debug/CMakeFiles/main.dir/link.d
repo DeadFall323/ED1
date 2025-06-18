@@ -1,8 +1,14 @@
-/home/kawandias/Documentos/TrabalhoED1/ED1/executable/main: \
+/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/main: \
   /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o \
   /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o \
   /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o \
   CMakeFiles/main.dir/source/main.c.o \
+  CMakeFiles/main.dir/source/eventos.c.o \
+  CMakeFiles/main.dir/source/atividades.c.o \
+  CMakeFiles/main.dir/source/participantes.c.o \
+  CMakeFiles/main.dir/source/checkin.c.o \
+  CMakeFiles/main.dir/source/desfazer.c.o \
+  CMakeFiles/main.dir/source/ordenacao.c.o \
   /usr/lib/gcc/x86_64-redhat-linux/15/libgcc.a \
   /usr/lib/gcc/x86_64-redhat-linux/15/libgcc_s.so \
   /usr/lib/gcc/x86_64-redhat-linux/15/libgcc_s.so \
@@ -32,6 +38,18 @@
 /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o:
 
 CMakeFiles/main.dir/source/main.c.o:
+
+CMakeFiles/main.dir/source/eventos.c.o:
+
+CMakeFiles/main.dir/source/atividades.c.o:
+
+CMakeFiles/main.dir/source/participantes.c.o:
+
+CMakeFiles/main.dir/source/checkin.c.o:
+
+CMakeFiles/main.dir/source/desfazer.c.o:
+
+CMakeFiles/main.dir/source/ordenacao.c.o:
 
 /usr/lib/gcc/x86_64-redhat-linux/15/libgcc.a:
 
