@@ -20,8 +20,13 @@ void menu_checkin(Fila *filaCheckin);
 void menu_atividades();
 
 int main() {
+
+    // Criar listas
     Fila filaCheckin;
     inicializarFila(&filaCheckin);
+
+    Participante *lista_participantes = NULL;
+
 
     int opcao;
     do {
@@ -30,10 +35,10 @@ int main() {
         printf("2. Gerenciar Atividades\n");
         printf("3. Gerenciar Participantes\n");
         printf("4. Realizar Check-in\n");
-        printf("5. Desfazer Remoção\n");
+        printf("5. Desfazer Remocao\n");
         printf("6. Ordenar\n");
         printf("0. Sair\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
         while(getchar() != '\n');
 
@@ -45,7 +50,7 @@ int main() {
             case 5: printf("desfazer_remocao()\n"); break;
             case 6: menu_ordenacao(); break;
             case 0: printf("Encerrando...\n"); break;
-            default: printf("Opção inválida!\n");
+            default: printf("Opcao invalida!\n");
         }
     } while(opcao != 0);
     return 0;
@@ -83,23 +88,6 @@ void menu_atividades() {
             case 1: printf(" cadastrar_atividade()\n"); break;
             case 2: printf(" listar_atividades()\n"); break;
             case 3: printf(" remover_atividade() \n"); break;
-        }
-    } while(opcao != 0);
-}
-
-void menu_participantes() {
-    int opcao;
-    do {
-        printf("\n--- MENU DE PARTICIPANTES ---\n");
-        printf("1. Cadastrar Participante em Atividade\n");
-        printf("2. Listar Participantes de uma Atividade\n");
-        printf("3. Remover Participante\n");
-        printf("0. Voltar\n");
-        scanf("%d", &opcao);
-        switch(opcao) {
-            case 1: printf(" cadastrar_participante\n"); break;
-            case 2: printf(" listar_participantes\n"); break;
-            case 3: printf(" remover_participante()\n"); break;
         }
     } while(opcao != 0);
 }

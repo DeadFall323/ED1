@@ -8,13 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/atividades.c" "CMakeFiles/checkin.dir/source/atividades.c.o" "gcc" "CMakeFiles/checkin.dir/source/atividades.c.o.d"
-  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/checkin.c" "CMakeFiles/checkin.dir/source/checkin.c.o" "gcc" "CMakeFiles/checkin.dir/source/checkin.c.o.d"
-  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/desfazer.c" "CMakeFiles/checkin.dir/source/desfazer.c.o" "gcc" "CMakeFiles/checkin.dir/source/desfazer.c.o.d"
-  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/eventos.c" "CMakeFiles/checkin.dir/source/eventos.c.o" "gcc" "CMakeFiles/checkin.dir/source/eventos.c.o.d"
-  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/ordenacao.c" "CMakeFiles/checkin.dir/source/ordenacao.c.o" "gcc" "CMakeFiles/checkin.dir/source/ordenacao.c.o.d"
-  "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/source/participantes.c" "CMakeFiles/checkin.dir/source/participantes.c.o" "gcc" "CMakeFiles/checkin.dir/source/participantes.c.o.d"
-  "" "/home/kawandias/Documentos/TrabalhoED1/ED1/ED1/executable/checkin" "gcc" "CMakeFiles/checkin.dir/link.d"
+  "C:/Users/Kawan/CLionProjects/ED1/source/atividades.c" "CMakeFiles/checkin.dir/source/atividades.c.obj" "gcc" "CMakeFiles/checkin.dir/source/atividades.c.obj.d"
+  "C:/Users/Kawan/CLionProjects/ED1/source/checkin.c" "CMakeFiles/checkin.dir/source/checkin.c.obj" "gcc" "CMakeFiles/checkin.dir/source/checkin.c.obj.d"
+  "C:/Users/Kawan/CLionProjects/ED1/source/desfazer.c" "CMakeFiles/checkin.dir/source/desfazer.c.obj" "gcc" "CMakeFiles/checkin.dir/source/desfazer.c.obj.d"
+  "C:/Users/Kawan/CLionProjects/ED1/source/eventos.c" "CMakeFiles/checkin.dir/source/eventos.c.obj" "gcc" "CMakeFiles/checkin.dir/source/eventos.c.obj.d"
+  "C:/Users/Kawan/CLionProjects/ED1/source/ordenacao.c" "CMakeFiles/checkin.dir/source/ordenacao.c.obj" "gcc" "CMakeFiles/checkin.dir/source/ordenacao.c.obj.d"
+  "C:/Users/Kawan/CLionProjects/ED1/source/participantes.c" "CMakeFiles/checkin.dir/source/participantes.c.obj" "gcc" "CMakeFiles/checkin.dir/source/participantes.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
