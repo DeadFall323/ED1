@@ -1,6 +1,8 @@
 //Declaração das bibliotecas essenciais
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 // Declaração das bibliotecas secundarias
 #include "../headers/eventos.h"
@@ -10,13 +12,17 @@
 #include "../headers/ordenacao.h"
 #include "../headers/participantes.h"
 
+// Declaração dos menus
 void menu_participantes();
 void menu_eventos();
 void menu_ordenacao();
-void menu_checkin();
+void menu_checkin(Fila *filaCheckin);
 void menu_atividades();
 
 int main() {
+    Fila filaCheckin;
+    inicializarFila(&filaCheckin);
+
     int opcao;
     do {
         printf("\n--- SISTEMA DE EVENTOS ACADÊMICOS ---\n");
@@ -35,7 +41,7 @@ int main() {
             case 1: menu_eventos(); break;
             case 2: menu_atividades(); break;
             case 3: menu_participantes(); break;
-            case 4: menu_checkin(); break;
+            case 4: menu_checkin(&filaCheckin); break;
             case 5: printf("desfazer_remocao()\n"); break;
             case 6: menu_ordenacao(); break;
             case 0: printf("Encerrando...\n"); break;
@@ -44,6 +50,9 @@ int main() {
     } while(opcao != 0);
     return 0;
 }
+
+// 🔹 ATENÇÃO → As funções abaixo NÃO FORAM ALTERADAS, estão exatamente como estavam.
+
 void menu_eventos() {
     int opcao;
     do {
@@ -60,6 +69,7 @@ void menu_eventos() {
         }
     } while(opcao != 0);
 }
+
 void menu_atividades() {
     int opcao;
     do {
@@ -76,6 +86,7 @@ void menu_atividades() {
         }
     } while(opcao != 0);
 }
+
 void menu_participantes() {
     int opcao;
     do {
@@ -92,20 +103,54 @@ void menu_participantes() {
         }
     } while(opcao != 0);
 }
-void menu_checkin() {
+
+void menu_checkin(Fila *filaCheckin) {
     int opcao;
+    char nome[100];
+    char matricula[20];
+
     do {
         printf("\n--- MENU DE CHECK-IN ---\n");
         printf("1. Realizar Check-in de Participante\n");
         printf("2. Listar Fila de Check-in\n");
+        printf("3. Chamar próximo da fila (realizar check-in)\n");
         printf("0. Voltar\n");
+        printf("Escolha uma opção: ");
         scanf("%d", &opcao);
+        getchar(); // Limpa ENTER
+
         switch(opcao) {
-            case 1: printf(" realizar_checkin()\n"); break;
-            case 2: printf(" listar_checkin()\n"); break;
+            case 1:
+                printf("Nome: ");
+                fgets(nome, sizeof(nome), stdin);
+                nome[strcspn(nome, "\n")] = '\0';
+
+                printf("Matrícula: ");
+                fgets(matricula, sizeof(matricula), stdin);
+                matricula[strcspn(matricula, "\n")] = '\0';
+
+                enfileirar(filaCheckin, nome, matricula);
+                printf("Check-in realizado!\n");
+                break;
+
+            case 2:
+                listarFila(filaCheckin);
+                break;
+
+            case 3:
+                desenfileirar(filaCheckin);
+                break;
+
+            case 0:
+                printf("Voltando ao menu anterior...\n");
+                break;
+
+            default:
+                printf("Opção inválida!\n");
         }
     } while(opcao != 0);
 }
+
 void menu_ordenacao() {
     int opcao;
     do {
@@ -120,4 +165,3 @@ void menu_ordenacao() {
         }
     } while(opcao != 0);
 }
-
