@@ -1,3 +1,0 @@
-C:\Users\Kawan\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f CMakeFiles\checkin.dir/objects.a
-C:\Users\Kawan\AppData\Local\Programs\CLion\bin\mingw\bin\ar.exe qc CMakeFiles\checkin.dir/objects.a @CMakeFiles\checkin.dir\objects1.rsp
-C:\Users\Kawan\AppData\Local\Programs\CLion\bin\mingw\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\checkin.dir/objects.a -Wl,--no-whole-archive -o C:\Users\Kawan\CLionProjects\ED1\executable\checkin.exe -Wl,--out-implib,libcheckin.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\checkin.dir\linkLibs.rsp

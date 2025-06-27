@@ -1,3 +1,0 @@
-C:\Users\Kawan\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f CMakeFiles\eventos.dir/objects.a
-C:\Users\Kawan\AppData\Local\Programs\CLion\bin\mingw\bin\ar.exe qc CMakeFiles\eventos.dir/objects.a @CMakeFiles\eventos.dir\objects1.rsp
-C:\Users\Kawan\AppData\Local\Programs\CLion\bin\mingw\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\eventos.dir/objects.a -Wl,--no-whole-archive -o C:\Users\Kawan\CLionProjects\ED1\executable\eventos.exe -Wl,--out-implib,libeventos.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\eventos.dir\linkLibs.rsp
