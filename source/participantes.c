@@ -6,15 +6,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>     // Para uso de isdigit
+#include <ctype.h>     // para usar a funcao isdigit
 #include "../headers/participantes.h"
 
 // Função principal do menu interativo para gerenciar os participantes
 void menu_participantes() {
     Participante *lista_participantes = NULL; // Ponteiro para o início da lista de participantes
 
-    int opcao;                                // Armazena a opção do menu escolhida pelo usuário
-    char nome[100], email[100], matricula[20]; // Buffers para entrada de dados do usuário
+    int opcao;
+    char nome[100], email[100], matricula[20];
 
     do {
 
@@ -45,7 +45,7 @@ void menu_participantes() {
 
                 Participante *novo = criar_participante(nome, email, matricula); // Valida e cria
                 if (novo) {
-                    inserir_participante(&lista_participantes, novo); // Inserindo na lista
+                    inserir_participante(&lista_participantes, novo); //
                     printf("Participante cadastrado com sucesso!\n");
                 }
                 break;

@@ -8,6 +8,7 @@
 #include <string.h>
 
 
+// essa funcao foi so para teste mesmo, pode ser apagada
 
 void atividades() {
     printf("Atividades funcionou\n");
