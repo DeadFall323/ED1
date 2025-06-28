@@ -58,6 +58,8 @@ int main() {
 
 // 🔹 ATENÇÃO → As funções abaixo NÃO FORAM ALTERADAS, estão exatamente como estavam.
 
+// A função menu_eventos foi alterada
+
 void menu_eventos() {
     int opcao;
     do {
@@ -66,11 +68,25 @@ void menu_eventos() {
         printf("2. Listar Eventos\n");
         printf("3. Remover Evento\n");
         printf("0. Voltar\n");
+        printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
+        getchar();
+
         switch(opcao) {
-            case 1: printf("cadastrar_evento\n"); break;
-            case 2: printf("listar_eventos\n"); break;
-            case 3: printf("remover_evento\n"); break;
+            case 1:
+                cadastrar_evento();
+                break;
+            case 2:
+                printf("listar_eventos\n");
+                break;
+            case 3:
+                printf("remover_evento\n");
+                break;
+            case 0:
+                printf("Retornando ao menu principal...\n");
+                break;
+            default:
+                printf("Opcao invalida. Tente novamente.\n");
         }
     } while(opcao != 0);
 }
