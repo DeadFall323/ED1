@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern Evento *inicio;
 
 // Declaração das bibliotecas secundarias
 #include "../headers/eventos.h"
@@ -12,6 +11,9 @@ extern Evento *inicio;
 #include "../headers/desfazer.h"
 #include "../headers/ordenacao.h"
 #include "../headers/participantes.h"
+ 
+extern Evento *inicio; // declaracao externa pra usar variavel de eventos.c
+
 
 // Declaração dos menus
 void menu_participantes();
