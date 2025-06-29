@@ -73,6 +73,7 @@ void cadastrar_evento(){
         return;
     }
 
+    novo->atividades = NULL; // linha adicionada p atvidades funcionar
     novo->prox = NULL;
 
     // Inserção na lista circular
@@ -150,4 +151,19 @@ void remover_evento(){
     }while(atual != inicio);
 
     printf("\nEvento nao encontrado\n");
+}
+
+// adicionado 
+Evento *buscar_evento(const char *nome) {
+    if (!inicio) return NULL;
+
+    Evento *atual = inicio;
+    do {
+        if (strcmp(atual->nome, nome) == 0) {
+            return atual;
+        }
+        atual = atual->prox;
+    } while (atual != inicio);
+
+    return NULL;
 }
