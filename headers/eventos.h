@@ -26,4 +26,7 @@ void cadastrar_evento(); // Cadastra novo evento
 void listar_eventos(); // Lista todos os eventos cadastrados
 void remover_evento(); // Remove um evento com base no nome
 
+//adiocionado
+Evento *buscar_evento(const char *nome);
+
 #endif // EVENTOS_H
