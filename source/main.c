@@ -23,7 +23,7 @@ void menu_checkin(Fila *filaCheckin);
 void menu_atividades();
 
 int main() {
-    saudacao();
+    //saudacao();
     // Criar listas
     Fila filaCheckin;
     inicializarFila(&filaCheckin);

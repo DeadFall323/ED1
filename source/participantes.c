@@ -2,38 +2,74 @@
 // Created by kawandias on 17/06/25.
 //
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>     // para usar a funcao isdigit
+#include <ctype.h>
 #include "../headers/participantes.h"
+#include "../headers/eventos.h"
+#include "../headers/atividades.h"
+
+extern Evento *inicio;
 
 // Função principal do menu interativo para gerenciar os participantes
 void menu_participantes() {
-    Participante *lista_participantes = NULL; // Ponteiro para o início da lista de participantes
+    if (!inicio) {
+        printf("Nenhum evento cadastrado. Cadastre um evento primeiro.\n");
+        return;
+    }
+
+    char nome_evento[100], titulo_atividade[100];
+
+    // Aqui mostra todos os eventos para que o usuário possa
+    // efetuar as devidas manipulações
+    listar_eventos();
+    printf("Digite o nome do evento: ");
+    fgets(nome_evento, sizeof(nome_evento), stdin);
+    nome_evento[strcspn(nome_evento, "\n")] = '\0';
+
+    Evento *evento = buscar_evento(nome_evento);
+    if (!evento) {
+        printf("Evento não encontrado!\n");
+        return;
+    }
+
+    // Escolhendo a atividade
+    printf("Digite o título da atividade: ");
+    fgets(titulo_atividade, sizeof(titulo_atividade), stdin);
+    titulo_atividade[strcspn(titulo_atividade, "\n")] = '\0';
+
+    Atividade *atividade = evento->atividades;
+    while (atividade && strcmp(atividade->titulo, titulo_atividade) != 0)
+        atividade = atividade->prox;
+
+    if (!atividade) {
+        printf("Atividade não encontrada!\n");
+        return;
+    }
+
+    // AQUI COMEÇA O MENU FUNCIONAL PARA A ATIVIDADE SELECIONADA
+    Participante **lista_participantes = &atividade->participantes;
 
     int opcao;
     char nome[100], email[100], matricula[20];
 
     do {
-
-        printf("\n--- MENU DE PARTICIPANTES ---\n");
-        printf("1. Cadastrar Participante em Atividade\n");
-        printf("2. Listar Participantes de uma Atividade\n");
+        printf("\n--- MENU DE PARTICIPANTES DA ATIVIDADE '%s' ---\n", atividade->titulo);
+        printf("1. Cadastrar Participante\n");
+        printf("2. Listar Participantes\n");
         printf("3. Remover Participante\n");
         printf("4. Ordenar Participantes por Nome (BubbleSort)\n");
         printf("0. Voltar\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
-        while (getchar() != '\n');         // Limpa o buffer do teclado
+        while (getchar() != '\n');
 
         switch(opcao) {
             case 1:
-                // Cadastro de participante
                 printf("Digite o nome: ");
-                fgets(nome, sizeof(nome), stdin);              // Lê nome com espaços
-                nome[strcspn(nome, "\n")] = '\0';             // Remove o '\n'
+                fgets(nome, sizeof(nome), stdin);
+                nome[strcspn(nome, "\n")] = '\0';
 
                 printf("Digite o email: ");
                 fgets(email, sizeof(email), stdin);
@@ -43,44 +79,39 @@ void menu_participantes() {
                 fgets(matricula, sizeof(matricula), stdin);
                 matricula[strcspn(matricula, "\n")] = '\0';
 
-                Participante *novo = criar_participante(nome, email, matricula); // Valida e cria
+                Participante *novo = criar_participante(nome, email, matricula);
                 if (novo) {
-                    inserir_participante(&lista_participantes, novo); //
+                    inserir_participante(lista_participantes, novo);
                     printf("Participante cadastrado com sucesso!\n");
                 }
                 break;
 
             case 2:
-                // Listagem de participantes
-                listar_participantes(lista_participantes);
+                listar_participantes(*lista_participantes);
                 break;
 
             case 3:
-                // Remoção de participante pela matrícula
                 printf("Digite a matricula do participante a remover: ");
                 fgets(matricula, sizeof(matricula), stdin);
                 matricula[strcspn(matricula, "\n")] = '\0';
-                remover_participante(&lista_participantes, matricula);
+                remover_participante(lista_participantes, matricula);
                 break;
 
             case 4:
-                // Ordenação por nome (BubbleSort)
-                ordenar_participantes_bubble(&lista_participantes);
+                ordenar_participantes_bubble(lista_participantes);
                 printf("Participantes ordenados por nome.\n");
                 break;
 
             case 0:
-                // Voltar ao menu principal
-                printf("Voltando ao menu principal...\n");
+                printf("Voltando...\n");
                 break;
 
             default:
-                printf("Opcao invalida!\n");
+                printf("Opção inválida!\n");
         }
 
-    } while(opcao != 0); // Repete até que a opção 0 seja escolhida
+    } while(opcao != 0);
 }
-
 // Função para criar um novo participante com validação de dados
 Participante* criar_participante(const char *nome, const char *email, const char *matricula) {
     // Verifica se email e matrícula são válidos

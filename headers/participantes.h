@@ -1,25 +1,31 @@
-//
-// Created by kawandias on 17/06/25.
-//
-
 #ifndef PARTICIPANTES_H
 #define PARTICIPANTES_H
 
+#define MAX_NOME 100
+#define MAX_EMAIL 100
+#define MAX_MATRICULA 20
+
+// Estrutura do participante (lista duplamente encadeada)
 typedef struct Participante {
-    char nome[100];
-    char email[100];
-    char matricula[20];
+    char nome[MAX_NOME];
+    char email[MAX_EMAIL];
+    char matricula[MAX_MATRICULA];
     struct Participante *ant;
     struct Participante *prox;
 } Participante;
 
-void menu_participantes();
+// Funções de gerenciamento de participantes
 Participante* criar_participante(const char *nome, const char *email, const char *matricula);
 void inserir_participante(Participante **lista, Participante *novo);
 void listar_participantes(Participante *lista);
 void remover_participante(Participante **lista, const char *matricula);
 void ordenar_participantes_bubble(Participante **lista);
+
+// Validações
 int validar_email(const char *email);
 int validar_matricula(const char *matricula);
 
-#endif
+// Menu interativo (já integrado a atividades)
+void menu_participantes();
+
+#endif // PARTICIPANTES_H
