@@ -20,7 +20,7 @@ void menu_checkin(Fila *filaCheckin);
 void menu_atividades();
 
 int main() {
-
+    saudacao();
     // Criar listas
     Fila filaCheckin;
     inicializarFila(&filaCheckin);
@@ -58,11 +58,11 @@ int main() {
 
 // 🔹 ATENÇÃO → As funções abaixo NÃO FORAM ALTERADAS, estão exatamente como estavam.
 
-// A função menu_eventos foi alterada
+// A função menu_eventos foi alterada e esta funcionando corretamente
 
-void menu_eventos() {
+void menu_eventos(){
     int opcao;
-    do {
+    do{
         printf("\n--- MENU DE EVENTOS ---\n");
         printf("1. Cadastrar Evento\n");
         printf("2. Listar Eventos\n");
@@ -72,15 +72,15 @@ void menu_eventos() {
         scanf("%d", &opcao);
         getchar();
 
-        switch(opcao) {
+        switch(opcao){
             case 1:
                 cadastrar_evento();
                 break;
             case 2:
-                printf("listar_eventos\n");
+                listar_eventos();
                 break;
             case 3:
-                printf("remover_evento\n");
+                remover_evento();
                 break;
             case 0:
                 printf("Retornando ao menu principal...\n");
@@ -88,7 +88,7 @@ void menu_eventos() {
             default:
                 printf("Opcao invalida. Tente novamente.\n");
         }
-    } while(opcao != 0);
+    }while(opcao != 0);
 }
 
 void menu_atividades() {
