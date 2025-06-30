@@ -12,6 +12,7 @@
 #include "../headers/ordenacao.h"
 #include "../headers/participantes.h"
  
+NoPilha *pilhaDesfazer = NULL; // pilha global usada no desfazer
 extern Evento *inicio; // declaracao externa pra usar variavel de eventos.c
 
 
@@ -27,6 +28,7 @@ int main() {
     // Criar listas
     Fila filaCheckin;
     inicializarFila(&filaCheckin);
+    inicializarPilha(&pilhaDesfazer); // ← inicializa a pilha global
 
     Participante *lista_participantes = NULL;
 
@@ -50,7 +52,7 @@ int main() {
             case 2: menu_atividades(); break;
             case 3: menu_participantes(); break;
             case 4: menu_checkin(&filaCheckin); break;
-            case 5: printf("desfazer_remocao()\n"); break;
+            case 5: desfazer_remocao(); break;
             case 6: menu_ordenacao(); break;
             case 0: printf("Encerrando...\n"); break;
             default: printf("Opcao invalida!\n");
