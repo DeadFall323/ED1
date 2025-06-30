@@ -1,8 +1,10 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "../headers/atividades.h"
+#include "../headers/desfazer.h"  // Adicionado para usar a pilha de desfazer
+
+extern Pilha *pilhaDesfazer;  // Declara a pilha usada em todo o sistema
 
 Atividade *merge(Atividade *a, Atividade *b) {
     if (!a) return b;
@@ -127,6 +129,7 @@ void listarAtividades(Atividade *lista) {
     }
 }
 
+// Atualizada para empilhar antes de remover a atividade
 void removerAtividade(Atividade **lista, char titulo[]) {
     Atividade *atual = *lista;
     Atividade *anterior = NULL;
@@ -141,6 +144,9 @@ void removerAtividade(Atividade **lista, char titulo[]) {
         printf("Atividade com o título '%s' não encontrada.\n", titulo);
         return;
     }
+
+    // Empilha a operação de remoção na pilha de desfazer
+    empilhar(pilhaDesfazer, "atividade", atual->titulo, atual->horario);
 
     // Remove o nó da lista
     if (anterior) {
