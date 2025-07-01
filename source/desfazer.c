@@ -14,7 +14,7 @@ void inicializarPilha(NoPilha **topo) {
 }
 
 // Empilha uma remoção: pode ser de participante ou atividade
-void empilhar(NoPilha **topo, char tipo[], char nome[], char infoExtra[], char atividade[], char evento[]) {
+void empilhar(NoPilha **topo, char tipo[], char nome[], char email[], char infoExtra[], char atividade[], char evento[]) {
     NoPilha *novo = (NoPilha *)malloc(sizeof(NoPilha));
     if (!novo) {
         printf("Erro ao alocar memória para a pilha.\n");

@@ -171,9 +171,7 @@ void remover_participante(Evento *evento, Atividade *atividade, const char *matr
     }
 
     // Empilha os dados da remoção para permitir desfazer depois
-    // tipo = "participante", nome = atual->nome, infoExtra = atual->matricula,
-    // atividade = atividade->titulo, evento = evento->nome
-    empilhar(&pilhaDesfazer, "participante", atual->nome, atual->matricula, atividade->titulo, evento->nome);
+    empilhar(&pilhaDesfazer, "participante", atual->nome, atual->email, atual->matricula, atividade->titulo, evento->nome);
 
     printf("Participante %s removido com sucesso!\n", atual->nome);
 

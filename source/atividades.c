@@ -151,7 +151,7 @@ void removerAtividade(Evento *evento, Atividade **lista, char titulo[]) {
 char horario_str[10]; // cria buffer para armazenar o horário em formato de string
 sprintf(horario_str, "%d", atual->hora); // converte o horário int para string (ex: 1430 → "1430")
 
-empilhar(&pilhaDesfazer, "atividade", atual->titulo, horario_str, "-", evento->nome);
+empilhar(&pilhaDesfazer, "atividade", atual->titulo, "-", horario_str, "-", evento->nome);
 
     // Remove o nó da lista encadeada de atividades
     if (anterior) {

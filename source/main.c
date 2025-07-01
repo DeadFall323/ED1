@@ -19,8 +19,7 @@ extern Evento *inicio; // declaracao externa pra usar variavel de eventos.c
 // Declaração dos menus
 void menu_participantes();
 void menu_eventos();
-void menu_ordenacao();
-void menu_checkin(Fila *filaCheckin);
+void menuCheckin(Fila *filaCheckin, Evento *listaEventos);
 void menu_atividades();
 
 int main() {
@@ -52,7 +51,7 @@ int main() {
             case 1: menu_eventos(); break;
             case 2: menu_atividades(); break;
             case 3: menu_participantes(); break;
-            case 4: menu_checkin(&filaCheckin); break;
+            case 4: menuCheckin(&filaCheckin, inicio); break;
             case 5: desfazer_remocao(); break;
             case 0: printf("Encerrando...\n"); break;
             default: printf("Opcao invalida!\n");
