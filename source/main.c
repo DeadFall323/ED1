@@ -60,9 +60,6 @@ int main() {
     return 0;
 }
 
-// ATENÇÃO → As funções abaixo NÃO FORAM ALTERADAS, estão exatamente como estavam.
-
-// A função menu_eventos foi alterada e esta funcionando corretamente
 
 void menu_eventos(){
     int opcao;
@@ -95,21 +92,23 @@ void menu_eventos(){
     }while(opcao != 0);
 }
 
-// menu de atividades adicionado
+// menu de atividades 
 void menu_atividades() {
     if (!inicio) {
         printf("Nenhum evento cadastrado. Cadastre um evento primeiro.\n");
         return;
     }
 
+    // Mostra os eventos disponíveis antes da entrada
+    printf("\n--- Eventos Cadastrados ---\n");
+    listar_eventos();
+
     char nome_evento[100];
     printf("Digite o nome do evento para gerenciar as atividades: ");
     fgets(nome_evento, sizeof(nome_evento), stdin);
     nome_evento[strcspn(nome_evento, "\n")] = 0; // Remove o '\n'
 
-    //adicionado para buscar evento
     Evento *eventoSelecionado = buscar_evento(nome_evento);
-
 
     if (!eventoSelecionado) {
         printf("Evento '%s' não encontrado.\n", nome_evento);
@@ -133,15 +132,13 @@ void menu_atividades() {
 
         switch(opcao) {
             case 1:
-               printf("Digite o titulo da atividade: ");
-               fgets(titulo, sizeof(titulo), stdin);
-               titulo[strcspn(titulo, "\n")] = 0;
-
+                printf("Digite o titulo da atividade: ");
+                fgets(titulo, sizeof(titulo), stdin);
+                titulo[strcspn(titulo, "\n")] = 0;
 
                 printf("Digite o horario (formato HHMM, ex: 1430 para 14:30): ");
                 scanf("%d", &hora);
 
-                // Chama a função para inserir a atividade na lista do evento selecionado
                 inserirAtividade(&eventoSelecionado->atividades, criarAtividade(titulo, hora));
                 break;
 
@@ -158,10 +155,9 @@ void menu_atividades() {
                 break;
 
             case 4:
-                // Chama a função de ordenação recursiva
                 ordenarAtividades(&eventoSelecionado->atividades);
                 printf("Atividades ordenadas por horário com sucesso!\n");
-                listarAtividades(eventoSelecionado->atividades); // Mostra a lista ordenada
+                listarAtividades(eventoSelecionado->atividades);
                 break;
 
             case 0:
@@ -173,6 +169,7 @@ void menu_atividades() {
         }
     } while(opcao != 0);
 }
+
 
 void menu_checkin(Fila *filaCheckin) {
     int opcao;

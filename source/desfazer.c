@@ -23,6 +23,7 @@ void empilhar(NoPilha **topo, char tipo[], char nome[], char email[], char infoE
 
     strcpy(novo->tipo, tipo);
     strcpy(novo->nome, nome);
+    strcpy(novo->email, email);
     strcpy(novo->infoExtra, infoExtra);
     strcpy(novo->atividade_titulo, atividade);
     strcpy(novo->evento_nome, evento);
