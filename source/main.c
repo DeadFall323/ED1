@@ -11,8 +11,8 @@
 #include "../headers/desfazer.h"
 #include "../headers/ordenacao.h"
 #include "../headers/participantes.h"
- 
-NoPilha *pilhaDesfazer = NULL; // pilha global usada no desfazer
+
+extern NoPilha *pilhaDesfazer;
 extern Evento *inicio; // declaracao externa pra usar variavel de eventos.c
 
 
