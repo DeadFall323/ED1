@@ -2,6 +2,9 @@
 #define ATIVIDADES_H
 
 #include "participantes.h"
+#include "eventos.h" // para que o tipo Evento seja conhecido
+
+
 
 typedef struct Atividade {
     char titulo[100];
@@ -15,7 +18,7 @@ typedef struct Atividade {
 Atividade *criarAtividade(char titulo[], int hora);
 void inserirAtividade(Atividade **lista, Atividade *nova);
 void listarAtividades(Atividade *lista);
-void removerAtividade(Atividade **lista, char titulo[]);
+void removerAtividade(Evento *evento, Atividade **lista, char titulo[]);
 void ordenarAtividades(Atividade **lista);
 int verificarConflito(Atividade *lista, int hora);
 

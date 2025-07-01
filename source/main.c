@@ -28,6 +28,8 @@ int main() {
     // Criar listas
     Fila filaCheckin;
     inicializarFila(&filaCheckin);
+    
+    extern NoPilha *pilhaDesfazer;
     inicializarPilha(&pilhaDesfazer); // ← inicializa a pilha global
 
     Participante *lista_participantes = NULL;
@@ -41,7 +43,6 @@ int main() {
         printf("3. Gerenciar Participantes\n");
         printf("4. Realizar Check-in\n");
         printf("5. Desfazer Remocao\n");
-        printf("6. Ordenar\n");
         printf("0. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
@@ -53,7 +54,6 @@ int main() {
             case 3: menu_participantes(); break;
             case 4: menu_checkin(&filaCheckin); break;
             case 5: desfazer_remocao(); break;
-            case 6: menu_ordenacao(); break;
             case 0: printf("Encerrando...\n"); break;
             default: printf("Opcao invalida!\n");
         }
@@ -61,7 +61,7 @@ int main() {
     return 0;
 }
 
-// 🔹 ATENÇÃO → As funções abaixo NÃO FORAM ALTERADAS, estão exatamente como estavam.
+// ATENÇÃO → As funções abaixo NÃO FORAM ALTERADAS, estão exatamente como estavam.
 
 // A função menu_eventos foi alterada e esta funcionando corretamente
 
@@ -155,7 +155,7 @@ void menu_atividades() {
                 fgets(titulo, sizeof(titulo), stdin);
                 titulo[strcspn(titulo, "\n")] = 0;
 
-                removerAtividade(&eventoSelecionado->atividades, titulo);
+                removerAtividade(eventoSelecionado, &eventoSelecionado->atividades, titulo);
                 break;
 
             case 4:
@@ -175,11 +175,8 @@ void menu_atividades() {
     } while(opcao != 0);
 }
 
-
 void menu_checkin(Fila *filaCheckin) {
     int opcao;
-    char nome[100];
-    char matricula[20];
 
     do {
         printf("\n--- MENU DE CHECK-IN ---\n");
@@ -193,16 +190,8 @@ void menu_checkin(Fila *filaCheckin) {
 
         switch(opcao) {
             case 1:
-                printf("Nome: ");
-                fgets(nome, sizeof(nome), stdin);
-                nome[strcspn(nome, "\n")] = '\0';
-
-                printf("Matrícula: ");
-                fgets(matricula, sizeof(matricula), stdin);
-                matricula[strcspn(matricula, "\n")] = '\0';
-
-                enfileirar(filaCheckin, nome, matricula);
-                printf("Check-in realizado!\n");
+                // Aqui chama o que está em menu_checkin.c
+                realizarCheckin(filaCheckin, inicio);
                 break;
 
             case 2:
@@ -219,21 +208,6 @@ void menu_checkin(Fila *filaCheckin) {
 
             default:
                 printf("Opção inválida!\n");
-        }
-    } while(opcao != 0);
-}
-
-void menu_ordenacao() {
-    int opcao;
-    do {
-        printf("\n--- MENU DE ORDENAÇÃO ---\n");
-        printf("1. Ordenar Atividades por Horário (Recursivo)\n");
-        printf("2. Ordenar Participantes por Nome (Iterativo)\n");
-        printf("0. Voltar\n");
-        scanf("%d", &opcao);
-        switch(opcao) {
-            case 1: printf(" ordenar_atividades()\n"); break;
-            case 2: printf(" ordenar_participantes()\n"); break;
         }
     } while(opcao != 0);
 }

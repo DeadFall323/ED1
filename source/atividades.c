@@ -4,7 +4,7 @@
 #include "../headers/atividades.h"
 #include "../headers/desfazer.h"  // Adicionado para usar a pilha de desfazer
 
-extern Pilha *pilhaDesfazer;  // Declara a pilha usada em todo o sistema
+extern NoPilha *pilhaDesfazer;  // Declara a pilha usada em todo o sistema
 
 Atividade *merge(Atividade *a, Atividade *b) {
     if (!a) return b;
@@ -129,12 +129,13 @@ void listarAtividades(Atividade *lista) {
     }
 }
 
-// Atualizada para empilhar antes de remover a atividade
-void removerAtividade(Atividade **lista, char titulo[]) {
+// remove uma atividade de um evento e registra na pilha de desfazer
+// recebe também o ponteiro para o evento, para que possamos registrar corretamente onde ela estava
+void removerAtividade(Evento *evento, Atividade **lista, char titulo[]) {
     Atividade *atual = *lista;
     Atividade *anterior = NULL;
 
-    // Procura a atividade na lista
+    // Procura a atividade pelo título
     while (atual && strcmp(atual->titulo, titulo) != 0) {
         anterior = atual;
         atual = atual->prox;
@@ -146,9 +147,13 @@ void removerAtividade(Atividade **lista, char titulo[]) {
     }
 
     // Empilha a operação de remoção na pilha de desfazer
-    empilhar(pilhaDesfazer, "atividade", atual->titulo, atual->horario);
 
-    // Remove o nó da lista
+char horario_str[10]; // cria buffer para armazenar o horário em formato de string
+sprintf(horario_str, "%d", atual->hora); // converte o horário int para string (ex: 1430 → "1430")
+
+empilhar(&pilhaDesfazer, "atividade", atual->titulo, horario_str, "-", evento->nome);
+
+    // Remove o nó da lista encadeada de atividades
     if (anterior) {
         anterior->prox = atual->prox;
     } else {
@@ -158,3 +163,4 @@ void removerAtividade(Atividade **lista, char titulo[]) {
     free(atual);
     printf("Atividade '%s' removida com sucesso.\n", titulo);
 }
+

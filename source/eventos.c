@@ -10,35 +10,26 @@
 // Ponteiro global para o início da lista circular de eventos
 Evento *inicio = NULL;
 
+// Mensagem de boas-vindas ao iniciar o sistema
 void saudacao(){
     printf("\nSistema de Eventos Academicos iniciado com sucesso!\n");
 }
 
-// Valida se a data está no formato correto e com valores plausíveis
+// Valida se a data está no formato correto e com valores plausíveis (dd/mm/aaaa)
 int validar_data(const char *data){
-    
-    if(strlen(data) != 10){
-        return 0;
-    }
-    if(data[2] != '/' || data[5] != '/'){
-        return 0;
-    }
+    if(strlen(data) != 10) return 0;
+    if(data[2] != '/' || data[5] != '/') return 0;
 
     int d, m, a;
-    if(sscanf(data, "%2d/%2d/%4d", &d, &m, &a) != 3){
-        return 0;
-    }
-    if(d < 1 || d > 31 || m < 1 || m > 12 || a < 1900){
-        return 0;
-    }
+    if(sscanf(data, "%2d/%2d/%4d", &d, &m, &a) != 3) return 0;
+    if(d < 1 || d > 31 || m < 1 || m > 12 || a < 1900) return 0;
+
     return 1;
 }
 
-// Verifica se o nome é válido
+// Verifica se o nome digitado tem pelo menos um caractere não vazio
 int validar_nome(const char *nome){
-    if(nome == NULL){
-        return 0;
-    }
+    if(nome == NULL) return 0;
     for(int i = 0; nome[i] != '\0'; i++){
         if(!isspace(nome[i])) return 1;
     }
@@ -73,18 +64,17 @@ void cadastrar_evento(){
         return;
     }
 
-    novo->atividades = NULL; // linha adicionada p atvidades funcionar
+    novo->atividades = NULL; // Inicializa lista de atividades do evento
     novo->prox = NULL;
 
-    // Inserção na lista circular
+    // Inserção na lista circular de eventos
     if(!inicio){
         inicio = novo;
         novo->prox = inicio;
-    }else{
+    } else {
         Evento *atual = inicio;
         while (atual->prox != inicio)
             atual = atual->prox;
-
         atual->prox = novo;
         novo->prox = inicio;
     }
@@ -106,7 +96,7 @@ void listar_eventos(){
     do{
         printf("%d. %s - %s\n", i++, atual->nome, atual->data);
         atual = atual->prox;
-    }while(atual != inicio);
+    } while(atual != inicio);
     printf("\n");
 }
 
@@ -131,14 +121,14 @@ void remover_evento(){
             if(atual == inicio && atual->prox == inicio){
                 free(atual);
                 inicio = NULL;
-            }else if (atual == inicio){
+            } else if (atual == inicio){
                 Evento *ultimo = inicio;
                 while (ultimo->prox != inicio)
                     ultimo = ultimo->prox;
                 inicio = atual->prox;
                 ultimo->prox = inicio;
                 free(atual);
-            }else{
+            } else {
                 anterior->prox = atual->prox;
                 free(atual);
             }
@@ -148,12 +138,12 @@ void remover_evento(){
         }
         anterior = atual;
         atual = atual->prox;
-    }while(atual != inicio);
+    } while(atual != inicio);
 
     printf("\nEvento nao encontrado\n");
 }
 
-// adicionado 
+// Busca um evento pelo nome
 Evento *buscar_evento(const char *nome) {
     if (!inicio) return NULL;
 
@@ -166,4 +156,39 @@ Evento *buscar_evento(const char *nome) {
     } while (atual != inicio);
 
     return NULL;
+}
+
+// Permite ao usuário selecionar um evento pela posição (usado no menu de check-in)
+Evento* selecionarEvento(Evento *listaEventos) {
+    if (listaEventos == NULL) {
+        printf("Nenhum evento cadastrado.\n");
+        return NULL;
+    }
+
+    Evento *atual = listaEventos;
+    int contador = 1;
+
+    printf("\n=== Lista de Eventos ===\n");
+    do {
+        printf("%d - %s (%s)\n", contador, atual->nome, atual->data);
+        atual = atual->prox;
+        contador++;
+    } while (atual != listaEventos);
+
+    int escolha;
+    printf("Digite o número do evento desejado: ");
+    scanf("%d", &escolha);
+    getchar(); // limpa o ENTER do buffer
+
+    if (escolha <= 0 || escolha >= contador) {
+        printf("Opção inválida.\n");
+        return NULL;
+    }
+
+    atual = listaEventos;
+    for (int i = 1; i < escolha; i++) {
+        atual = atual->prox;
+    }
+
+    return atual;
 }

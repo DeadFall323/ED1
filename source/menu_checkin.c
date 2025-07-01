@@ -1,34 +1,55 @@
 #include <stdio.h>
 #include <string.h>
 #include "../headers/checkin.h"
+#include "../headers/eventos.h"
+#include "../headers/atividades.h"
+#include "../headers/participantes.h"
 
-void menuCheckin(Fila *fila) {
+// Função para fazer check-in baseado nos participantes já cadastrados
+void realizarCheckin(Fila *fila, Evento *listaEventos) {
+    Evento *evento = selecionarEvento(listaEventos); // Você já deve ter essa função em eventos.c
+    if (evento == NULL || evento->atividades == NULL) {
+        printf("Evento inválido ou sem atividades cadastradas.\n");
+        return;
+    }
+
+    Atividade *atividade = evento->atividades;
+    while (atividade != NULL) {
+        Participante *p = atividade->participantes;
+        while (p != NULL) {
+            printf("\nParticipante: %s | Matrícula: %s\n", p->nome, p->matricula);
+            printf("Deseja realizar check-in para este participante? (s/n): ");
+            char opcao;
+            scanf(" %c", &opcao);
+
+            if (opcao == 's' || opcao == 'S') {
+                enfileirar(fila, p);
+                printf("Check-in realizado para %s!\n", p->nome);
+            }
+
+            p = p->prox;
+        }
+        atividade = atividade->prox;
+    }
+}
+
+// Menu de check-in atualizado
+void menuCheckin(Fila *fila, Evento *listaEventos) {
     int opcao;
-    char nome[100];
-    char matricula[20];
 
     do {
         printf("\n==== MENU DE CHECK-IN ====\n");
-        printf("1 - Fazer check-in (entrar na fila)\n");
+        printf("1 - Fazer check-in (selecionar evento > participantes)\n");
         printf("2 - Listar fila\n");
         printf("3 - Chamar próximo da fila (realizar check-in)\n");
         printf("0 - Voltar\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
-        getchar(); // Limpa o ENTER que fica no buffer
+        getchar(); // Limpa o ENTER do buffer
 
         switch (opcao) {
             case 1:
-                printf("Nome: ");
-                fgets(nome, sizeof(nome), stdin);
-                nome[strcspn(nome, "\n")] = '\0'; // Remove ENTER
-
-                printf("Matrícula: ");
-                fgets(matricula, sizeof(matricula), stdin);
-                matricula[strcspn(matricula, "\n")] = '\0';
-
-                enfileirar(fila, nome, matricula);
-                printf("Check-in realizado!\n");
+                realizarCheckin(fila, listaEventos);
                 break;
 
             case 2:
