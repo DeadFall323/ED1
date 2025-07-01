@@ -5,6 +5,9 @@
 #include "../headers/atividades.h"
 #include "../headers/participantes.h"
 
+int participante_ja_na_fila(Fila *fila, Participante *p);
+
+
 // Função para realizar check-in dos participantes de forma mais clara e interativa
 void realizarCheckin(Fila *fila, Evento *listaEventos) {
     if (!listaEventos) {
@@ -87,9 +90,13 @@ void realizarCheckin(Fila *fila, Evento *listaEventos) {
         }
 
         Participante *pEscolhido = listaParticipantes[escolha - 1];
-        enfileirar(fila, pEscolhido);
-        printf("Check-in realizado para %s!\n", pEscolhido->nome);
+       if (!participante_ja_na_fila(fila, pEscolhido)) {
+          enfileirar(fila, pEscolhido);
+          printf("Check-in realizado para %s!\n", pEscolhido->nome);
+       } else {
 
+    printf("%s já está na fila de check-in.\n", pEscolhido->nome);
+       }
         printf("Deseja fazer check-in de outro participante? (s/n): ");
         scanf(" %c", &continuar);
         getchar();
@@ -102,7 +109,7 @@ void menuCheckin(Fila *filaCheckin, Evento *listaEventos) {
 
     do {
         printf("\n==== MENU DE CHECK-IN ====\n");
-        printf("1 - Fazer check-in (evento > atividade > participante)\n");
+        printf("1 - Fazer check-in\n");
         printf("2 - Listar fila de check-in\n");
         printf("3 - Chamar próximo da fila\n");
         printf("0 - Voltar\n");
@@ -128,3 +135,14 @@ void menuCheckin(Fila *filaCheckin, Evento *listaEventos) {
         }
     } while (opcao != 0);
 }
+
+int participante_ja_na_fila(Fila *fila, Participante *p) {
+    NoFila *atual = fila->inicio;
+    while (atual) {
+        if (strcmp(atual->participante->matricula, p->matricula) == 0)
+            return 1;
+        atual = atual->prox;
+    }
+    return 0;
+}
+

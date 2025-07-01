@@ -77,8 +77,8 @@ void desfazer_remocao() {
             return;
         }
 
-        // Recria o participante com email genérico (já que não armazenamos o original)
-        Participante *restaurado = criar_participante(temp->nome, "email@restaurado.com", temp->infoExtra);
+        // Recria o participante
+        Participante *restaurado = criar_participante(temp->nome, temp->email, temp->infoExtra);
         if (!restaurado) {
             printf("Erro ao recriar participante.\n");
             return;
