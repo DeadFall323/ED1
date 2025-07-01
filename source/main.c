@@ -60,7 +60,6 @@ int main() {
     return 0;
 }
 
-
 void menu_eventos(){
     int opcao;
     do{
@@ -92,26 +91,24 @@ void menu_eventos(){
     }while(opcao != 0);
 }
 
-// menu de atividades 
+// menu de atividades adicionado
 void menu_atividades() {
     if (!inicio) {
         printf("Nenhum evento cadastrado. Cadastre um evento primeiro.\n");
         return;
     }
 
-    // Mostra os eventos disponíveis antes da entrada
-    printf("\n--- Eventos Cadastrados ---\n");
-    listar_eventos();
-
     char nome_evento[100];
     printf("Digite o nome do evento para gerenciar as atividades: ");
     fgets(nome_evento, sizeof(nome_evento), stdin);
     nome_evento[strcspn(nome_evento, "\n")] = 0; // Remove o '\n'
 
+    //adicionado para buscar evento
     Evento *eventoSelecionado = buscar_evento(nome_evento);
 
+
     if (!eventoSelecionado) {
-        printf("Evento '%s' não encontrado.\n", nome_evento);
+        printf("Evento '%s' nao encontrado.\n", nome_evento);
         return;
     }
 
@@ -132,13 +129,15 @@ void menu_atividades() {
 
         switch(opcao) {
             case 1:
-                printf("Digite o titulo da atividade: ");
-                fgets(titulo, sizeof(titulo), stdin);
-                titulo[strcspn(titulo, "\n")] = 0;
+               printf("Digite o titulo da atividade: ");
+               fgets(titulo, sizeof(titulo), stdin);
+               titulo[strcspn(titulo, "\n")] = 0;
+
 
                 printf("Digite o horario (formato HHMM, ex: 1430 para 14:30): ");
                 scanf("%d", &hora);
 
+                // Chama a função para inserir a atividade na lista do evento selecionado
                 inserirAtividade(&eventoSelecionado->atividades, criarAtividade(titulo, hora));
                 break;
 
@@ -147,7 +146,7 @@ void menu_atividades() {
                 break;
 
             case 3:
-                printf("Digite o título da atividade a ser removida: ");
+                printf("Digite o titulo da atividade a ser removida: ");
                 fgets(titulo, sizeof(titulo), stdin);
                 titulo[strcspn(titulo, "\n")] = 0;
 
@@ -155,9 +154,10 @@ void menu_atividades() {
                 break;
 
             case 4:
+                // Chama a função de ordenação recursiva
                 ordenarAtividades(&eventoSelecionado->atividades);
-                printf("Atividades ordenadas por horário com sucesso!\n");
-                listarAtividades(eventoSelecionado->atividades);
+                printf("Atividades ordenadas por horario com sucesso!\n");
+                listarAtividades(eventoSelecionado->atividades); // Mostra a lista ordenada
                 break;
 
             case 0:
@@ -165,11 +165,10 @@ void menu_atividades() {
                 break;
 
             default:
-                printf("Opção inválida! Tente novamente.\n");
+                printf("Opcao invalida! Tente novamente.\n");
         }
     } while(opcao != 0);
 }
-
 
 void menu_checkin(Fila *filaCheckin) {
     int opcao;
@@ -178,9 +177,9 @@ void menu_checkin(Fila *filaCheckin) {
         printf("\n--- MENU DE CHECK-IN ---\n");
         printf("1. Realizar Check-in de Participante\n");
         printf("2. Listar Fila de Check-in\n");
-        printf("3. Chamar próximo da fila (realizar check-in)\n");
+        printf("3. Chamar proximo da fila (realizar check-in)\n");
         printf("0. Voltar\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
         getchar(); // Limpa ENTER
 
@@ -203,7 +202,7 @@ void menu_checkin(Fila *filaCheckin) {
                 break;
 
             default:
-                printf("Opção inválida!\n");
+                printf("Opcao invalida!\n");
         }
     } while(opcao != 0);
 }

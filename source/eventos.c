@@ -17,66 +17,70 @@ void saudacao(){
 
 // Valida se a data está no formato correto e com valores plausíveis (dd/mm/aaaa)
 int validar_data(const char *data){
-    if(strlen(data) != 10) return 0;
-    if(data[2] != '/' || data[5] != '/') return 0;
+    if(strlen(data) != 10) return 0; // Verifica se tem exatamente 10 caracteres (ex: "01/01/2025")
+    if(data[2] != '/' || data[5] != '/') return 0; // Verifica se os separadores '/' estão nas posições corretas
 
     int d, m, a;
-    if(sscanf(data, "%2d/%2d/%4d", &d, &m, &a) != 3) return 0;
-    if(d < 1 || d > 31 || m < 1 || m > 12 || a < 1900) return 0;
+    if(sscanf(data, "%2d/%2d/%4d", &d, &m, &a) != 3) return 0; // Lê os valores de dia, mês e ano
+    if(d < 1 || d > 31 || m < 1 || m > 12 || a < 1900) return 0; // Verifica se os valores extraídos são válidos
 
-    return 1;
+    return 1; // Se tudo estiver correto, retorna 1 (válido)
 }
 
 // Verifica se o nome digitado tem pelo menos um caractere não vazio
 int validar_nome(const char *nome){
-    if(nome == NULL) return 0;
+    if(nome == NULL) return 0; // Verifica se é nulo
+    // Percorre a string para ver se há algum caractere diferente de espaço
     for(int i = 0; nome[i] != '\0'; i++){
-        if(!isspace(nome[i])) return 1;
+        if(!isspace(nome[i])) return 1; // Retorna 1 se encontrar algum caractere que não seja espaço
     }
     return 0;
 }
 
 // Cadastra um novo evento e insere na lista circular
 void cadastrar_evento(){
-    Evento *novo = malloc(sizeof(Evento));
+    Evento *novo = malloc(sizeof(Evento)); // Aloca memória para o novo evento
     if(!novo){
         printf("\nErro ao alocar memoria\n");
-        return;
+        return; // Encerra se falhar a alocação
     }
-
+    
+    // Lê o nome do evento
     printf("Digite o nome do evento: ");
-    fgets(novo->nome, MAX_NOME, stdin);
-    novo->nome[strcspn(novo->nome, "\n")] = '\0';
+    fgets(novo->nome, MAX_NOME, stdin); // Lê do teclado com proteção de tamanho
+    novo->nome[strcspn(novo->nome, "\n")] = '\0'; // Remove o '\n' do final
 
-    if(!validar_nome(novo->nome)){
+
+    if(!validar_nome(novo->nome)){ // Valida o nome
         printf("\nNome invalido!\n");
-        free(novo);
+        free(novo); // Libera memória alocada se inválido
         return;
     }
 
+    // Lê a data do evento
     printf("Digite a data do evento (dd/mm/aaaa): ");
     fgets(novo->data, MAX_DATA, stdin);
-    novo->data[strcspn(novo->data, "\n")] = '\0';
+    novo->data[strcspn(novo->data, "\n")] = '\0'; // Remove o '\n'
 
-    if(!validar_data(novo->data)){
+    if(!validar_data(novo->data)){ // Valida a data
         printf("\nData invalida!\n");
         free(novo);
         return;
     }
 
     novo->atividades = NULL; // Inicializa lista de atividades do evento
-    novo->prox = NULL;
+    novo->prox = NULL; // Inicializa o ponteiro para o próximo evento
 
     // Inserção na lista circular de eventos
-    if(!inicio){
-        inicio = novo;
-        novo->prox = inicio;
-    } else {
+    if(!inicio){ // Se a lista estiver vazia
+        inicio = novo; // Caso seja o primeiro evento
+        novo->prox = inicio; // Aponta para si mesmo
+    }else{
         Evento *atual = inicio;
-        while (atual->prox != inicio)
+        while (atual->prox != inicio) // Percorre até o último nó
             atual = atual->prox;
-        atual->prox = novo;
-        novo->prox = inicio;
+        atual->prox = novo; // Insere o novo evento no final
+        novo->prox = inicio; // Fecha o ciclo da lista circular
     }
 
     printf("\nEvento cadastrado com sucesso!\n");
@@ -94,9 +98,9 @@ void listar_eventos(){
 
     printf("\nEventos Cadastrados:\n");
     do{
-        printf("%d. %s - %s\n", i++, atual->nome, atual->data);
-        atual = atual->prox;
-    } while(atual != inicio);
+        printf("%d. %s - %s\n", i++, atual->nome, atual->data); // Imprime número, nome e data
+        atual = atual->prox; // Avança na lista
+    }while(atual != inicio); // Até voltar ao início (lista circular)
     printf("\n");
 }
 
@@ -107,7 +111,7 @@ void remover_evento(){
         return;
     }
 
-    listar_eventos();
+    listar_eventos(); // Mostra os eventos para o usuário
     printf("Digite o nome do evento a ser removido: ");
     char nome[MAX_NOME];
     fgets(nome, MAX_NOME, stdin);
@@ -116,19 +120,24 @@ void remover_evento(){
     Evento *atual = inicio;
     Evento *anterior = NULL;
 
+    // Percorre a lista circular
     do{
-        if(strcmp(atual->nome, nome) == 0){
+        // Compara o nome informado com o nome do evento atual
+        if(strcmp(atual->nome, nome) == 0){ // Evento encontrado
             if(atual == inicio && atual->prox == inicio){
+                // Único evento na lista
                 free(atual);
                 inicio = NULL;
-            } else if (atual == inicio){
+            }else if(atual == inicio){
+                // Evento no início, com outros elementos
                 Evento *ultimo = inicio;
                 while (ultimo->prox != inicio)
                     ultimo = ultimo->prox;
                 inicio = atual->prox;
                 ultimo->prox = inicio;
                 free(atual);
-            } else {
+            }else{
+                // Evento no meio ou fim
                 anterior->prox = atual->prox;
                 free(atual);
             }
@@ -136,24 +145,25 @@ void remover_evento(){
             printf("\nEvento removido com sucesso\n");
             return;
         }
-        anterior = atual;
-        atual = atual->prox;
-    } while(atual != inicio);
+        anterior = atual; // Guarda o anterior
+        atual = atual->prox; // Avança na lista
+    }while(atual != inicio); // Percorre toda a lista até voltar ao início
 
     printf("\nEvento nao encontrado\n");
 }
 
 // Busca um evento pelo nome
-Evento *buscar_evento(const char *nome) {
-    if (!inicio) return NULL;
+Evento *buscar_evento(const char *nome){
+    if(!inicio) return NULL;
 
     Evento *atual = inicio;
-    do {
-        if (strcmp(atual->nome, nome) == 0) {
-            return atual;
+    // Percorre lista circular procurando nome igual
+    do{
+        if(strcmp(atual->nome, nome) == 0){
+            return atual; // Retorna o evento se o nome bater
         }
         atual = atual->prox;
-    } while (atual != inicio);
+    }while(atual != inicio); // Percorre até voltar ao início
 
     return NULL;
 }
@@ -176,12 +186,12 @@ Evento* selecionarEvento(Evento *listaEventos) {
     } while (atual != listaEventos);
 
     int escolha;
-    printf("Digite o número do evento desejado: ");
+    printf("Digite o numero do evento desejado: ");
     scanf("%d", &escolha);
     getchar(); // limpa o ENTER do buffer
 
     if (escolha <= 0 || escolha >= contador) {
-        printf("Opção inválida.\n");
+        printf("Opcao invalida.\n");
         return NULL;
     }
 
