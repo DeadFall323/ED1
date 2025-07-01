@@ -27,4 +27,6 @@ void listarPilha(NoPilha *topo);
 // Função principal chamada no menu para desfazer a última remoção
 void desfazer_remocao();
 
+extern NoPilha *pilhaDesfazer; 
+
 #endif
