@@ -6,64 +6,79 @@
 
 extern NoPilha *pilhaDesfazer;  // Declara a pilha usada em todo o sistema
 
+// '*a' e '*b' sao ponteiros q apontam pra o incio de cada lista ordenda.
 Atividade *merge(Atividade *a, Atividade *b) {
-    if (!a) return b;
-    if (!b) return a;
+    if (!a) return b; // Caso base da recursão: se a primeira lista (a) for nula, o resultado é a segunda lista (b).
+    if (!b) return a; //  // Caso base da recursão: se a segunda lista (b) for nula, o resultado é a primeira lista (a).
 
-    Atividade *resultado = NULL;
+    Atividade *resultado = NULL;    // Ponteiro para armazenar o nó inicial da lista combinada.
 
     if (a->hora <= b->hora) {
-        resultado = a;
-        resultado->prox = merge(a->prox, b);
+        resultado = a; // Se a atividade da lista 'a' tem horário menor ou igual, ela se torna o início do resultado.
+        resultado->prox = merge(a->prox, b); // O próximo elemento da lista resultado é definido recursivamente, combinando
+        // o resto da lista 'a' (a->prox) com a lista 'b' inteira.
+
     } else {
-        resultado = b;
-        resultado->prox = merge(a, b->prox);
+        resultado = b;   // Se a atividade da lista 'b' tem horário menor, ela se torna o início do resultado.
+        resultado->prox = merge(a, b->prox);// O próximo elemento é definido recursivamente, combinando a lista 'a' inteira
+        // com o resto da lista 'b' (b->prox).
+
+
     }
-    return resultado;
+    return resultado; // Retorna o ponteiro para o início da lista recém-combinada e ordenada.
 }
 
 
-// Divide uma lista encadeada em duas metades.
-// a função implementa a etapa de Divisão
-// origem é A lista original a ser dividida.
-// frente é o Ponteiro para a primeira metade da lista.
-// tras Ponteiro para a segunda metade da lista.
 
+// 'origem' é a lista original a ser dividida.
+// frente é o Ponteiro p/ a primeira metade da lista.
+// tras é ponteiro p/ a segunda metade da lista.
+// Divide uma lista encadeada em duas metades.
 void dividir(Atividade *origem, Atividade **frente, Atividade **tras) {
-    if (!origem || !origem->prox) {
-        *frente = origem;
+    if (!origem || !origem->prox) { // Caso base: se a lista está vazia ou tem apenas um elemento, não há como dividir.
+        *frente = origem;  // A 'frente' se torna a própria lista e a 'tras' se torna nula.
         *tras = NULL;
         return;
     }
 
-    Atividade *lento = origem;
-    Atividade *rapido = origem->prox;
+    Atividade *lento = origem;   // Inicializa o ponteiro 'lento' no primeiro nó.
+    Atividade *rapido = origem->prox;  // Inicializa o ponteiro 'rapido' no segundo nó.
 
     // O ponteiro 'rapido' avança dois nós por vez, enquanto 'lento' avança um.
     // Quando 'rapido' chegar ao fim, 'lento' estará no meio.
     while (rapido) {
-        rapido = rapido->prox;
-        if (rapido) {
-            lento = lento->prox;
-            rapido = rapido->prox;
+        rapido = rapido->prox;  // O ponteiro 'rapido' avança um passo.
+        if (rapido) { // Se 'rapido' não for nulo após o primeiro passo, significa que ainda há nós à frente.
+            lento = lento->prox; // 'lento' avança um passo.
+            rapido = rapido->prox;   // 'rapido' avança o segundo passo
         }
     }
 
-    *frente = origem;
-    *tras = lento->prox;
-    lento->prox = NULL;
+    *frente = origem;   // A primeira metade ('frente') começa no nó de origem da lista original.
+    *tras = lento->prox;  // A segunda metade ('tras')comeca no nó seguinte ao 'lento', que é o ponto médio.
+    lento->prox = NULL;    // a conexao entre as duas metades é rompida e transforma o fim da primeira metade em NULL e cria duas listas distintas.
 }
 
+// divide a lista e chama a si mesma, e depois usa a função merge para juntar os pedaços.
 void ordenarAtividades(Atividade **lista) {
+    // 'cabeca' recebe o ponteiro para o primeiro nó da lista.
     Atividade *cabeca = *lista;
+     //se a lista estiver vazia ou tiver apenas um elemento,retorna sem modificar, pq ja ta ordenada.
     if (!cabeca || !cabeca->prox) return;
-
+    
+    // Declara dois ponteiros para atividades, 'a' e 'b', que receberão s duas metades da lista após a divisão.
     Atividade *a;
     Atividade *b;
+    // a função 'dividir' pega a lista original ('cabeca') e a divide em duas sub-listas, 'a' e 'b'.
     dividir(cabeca, &a, &b);
+    // A função chama a si mesma para ordenar a primeira metade da lista ('a')
     ordenarAtividades(&a);
+    // A função chama a si mesma novamente para ordenar a segunda metade da lista ('b').
     ordenarAtividades(&b);
+    // a função 'merge' é chamada para combiná-las em uma única lista final ordenada.
     *lista = merge(a, b);
+    // O ponteiro original da '*lista' é atualizado para apontar para o
+    // início da nova lista combinada e ordenada.
 }
 
 
@@ -92,7 +107,7 @@ Atividade *criarAtividade(char titulo[], int hora) {
 }
 
 
-
+// verifica se ja exista alguma atividade no msm horario
 int verificarConflito(Atividade *lista, int hora) {
     Atividade *atual = lista;
     while (atual) {
@@ -115,14 +130,17 @@ void inserirAtividade(Atividade **lista, Atividade *nova) {
     *lista = nova;
     printf(" Atividade '%s' cadastrada com sucesso!\n", nova->titulo);
 }
-
+    // *lista é o ponteiro para o primeiro nó da lista de atividades a ser listada
 void listarAtividades(Atividade *lista) {
+    // Verifica se o ponteiro para a lista é nulo, o que significa que não há atividades
     if (!lista) {
         printf("Nenhuma atividade cadastrada neste evento.\n");
         return;
     }
     printf("\n--- Lista de Atividades ---\n");
+    // Cria um ponteiro auxiliar 'atual' que começa apontando para o início da lista.
     Atividade *atual = lista;
+    // enquanto 'atual' n for nulo continuar percorrendo e imprimindo a lista.
     while (atual) {
         printf("  - Titulo: %s | Horario: %02d:%02dhrs\n", atual->titulo, atual->hora / 100, atual->hora % 100);
         atual = atual->prox;
