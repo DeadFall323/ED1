@@ -25,7 +25,7 @@ Atividade *merge(Atividade *a, Atividade *b) {
 
 // Divide uma lista encadeada em duas metades.
 // a função implementa a etapa de Divisão
-// origem é A lista original a ser dividida.
+// origem é  a lista original a ser dividida.
 // frente é o Ponteiro para a primeira metade da lista.
 // tras Ponteiro para a segunda metade da lista.
 
