@@ -1,32 +1,51 @@
 #ifndef DESFAZER_H
 #define DESFAZER_H
 
+// --------------------------------------------
 // Estrutura de um nó da pilha de desfazer
+// Cada nó armazena os dados necessários para reverter uma remoção
+// Pode representar uma atividade ou um participante
+// --------------------------------------------
 typedef struct NoPilha {
-    char tipo[20];               // "participante" ou "atividade"
-    char nome[100];              // nome do participante ou atividade
-    char email[100];             // e-mail original do participante
-    char infoExtra[100];         // matrícula (para participante) ou horário (para atividade)
-    char atividade_titulo[100];  // título da atividade (para participante)
-    char evento_nome[100];       // nome do evento
-    struct NoPilha *prox;        // ponteiro para o próximo da pilha
+    char tipo[20];               // Tipo da entidade removida: "participante" ou "atividade"
+    char nome[100];              // Nome do participante ou da atividade
+    char email[100];             // E-mail original (apenas para participante)
+    char infoExtra[100];         // Matrícula (para participante) ou horário (para atividade)
+    char atividade_titulo[100];  // Título da atividade (para desfazer participante removido)
+    char evento_nome[100];       // Nome do evento ao qual a entidade pertencia
+    struct NoPilha *prox;        // Ponteiro para o próximo elemento da pilha
 } NoPilha;
 
-// Inicializa a pilha (define topo como NULL)
+// --------------------------------------------
+// Inicializa a pilha de desfazer (define topo como NULL)
+// Deve ser chamada no início do programa
+// --------------------------------------------
 void inicializarPilha(NoPilha **topo);
 
-// Empilha uma operação de remoção (participante ou atividade)
+// --------------------------------------------
+// Empilha uma nova operação de remoção
+// Armazena todas as informações necessárias para reverter a ação depois
+// --------------------------------------------
 void empilhar(NoPilha **topo, char tipo[], char nome[], char email[], char infoExtra[], char atividade[], char evento[]);
 
-// Desempilha e executa a ação de desfazer (realmente reverte a remoção)
+// --------------------------------------------
+// Desempilha o último item da pilha e reverte a remoção
+// Reinsere a atividade ou o participante no local original
+// --------------------------------------------
 void desempilhar(NoPilha **topo);
 
-// Lista todas as operações empilhadas (opcional para debug)
+// --------------------------------------------
+// Lista o conteúdo da pilha de desfazer (opcional para debug ou exibição)
+// --------------------------------------------
 void listarPilha(NoPilha *topo);
 
-// Função principal chamada no menu para desfazer a última remoção
+// --------------------------------------------
+// Função principal a ser chamada no menu do sistema
+// Encapsula o processo de desfazer a última ação
+// --------------------------------------------
 void desfazer_remocao();
 
-extern NoPilha *pilhaDesfazer; 
+// Pilha de desfazer global usada pelo sistema inteiro
+extern NoPilha *pilhaDesfazer;
 
 #endif

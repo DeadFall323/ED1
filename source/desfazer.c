@@ -2,18 +2,28 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../headers/desfazer.h"
-#include "../headers/eventos.h"       // Para buscar evento
-#include "../headers/atividades.h"    // Para buscar atividade
-#include "../headers/participantes.h" // Para recriar participante
+#include "../headers/eventos.h"       // Necessário para localizar eventos
+#include "../headers/atividades.h"    // Necessário para criar atividades
+#include "../headers/participantes.h" // Necessário para criar participantes
 
-NoPilha *pilhaDesfazer;  // Pilha global usada para armazenar remoções
+// Pilha global utilizada para armazenar operações de remoção
+NoPilha *pilhaDesfazer;
 
-// Inicializa a pilha definindo topo como NULL
+// ---------------------------------------------
+// Função: inicializarPilha
+// Objetivo: Inicializa a pilha de desfazer (define topo como NULL)
+// ---------------------------------------------
 void inicializarPilha(NoPilha **topo) {
     *topo = NULL;
 }
 
-// Empilha uma remoção: pode ser de participante ou atividade
+// ---------------------------------------------
+// Função: empilhar
+// Objetivo: Armazena uma nova operação de remoção na pilha
+// Parâmetros:
+// - tipo: "participante" ou "atividade"
+// - nome, email, infoExtra, atividade, evento: informações para restauração
+// ---------------------------------------------
 void empilhar(NoPilha **topo, char tipo[], char nome[], char email[], char infoExtra[], char atividade[], char evento[]) {
     NoPilha *novo = (NoPilha *)malloc(sizeof(NoPilha));
     if (!novo) {
@@ -21,6 +31,7 @@ void empilhar(NoPilha **topo, char tipo[], char nome[], char email[], char infoE
         return;
     }
 
+    // Copia os dados para o novo nó
     strcpy(novo->tipo, tipo);
     strcpy(novo->nome, nome);
     strcpy(novo->email, email);
@@ -28,11 +39,15 @@ void empilhar(NoPilha **topo, char tipo[], char nome[], char email[], char infoE
     strcpy(novo->atividade_titulo, atividade);
     strcpy(novo->evento_nome, evento);
 
+    // Insere no topo da pilha
     novo->prox = *topo;
     *topo = novo;
 }
 
-// Lista todos os elementos da pilha
+// ---------------------------------------------
+// Função: listarPilha
+// Objetivo: Exibe todos os itens empilhados (para debug ou visualização)
+// ---------------------------------------------
 void listarPilha(NoPilha *topo) {
     if (topo == NULL) {
         printf("Pilha vazia.\n");
@@ -47,8 +62,11 @@ void listarPilha(NoPilha *topo) {
     }
 }
 
-// Função principal chamada no menu para desfazer a última remoção
-// suporta desfazer tanto participantes quanto atividades
+// ---------------------------------------------
+// Função: desfazer_remocao
+// Objetivo: Reverte a última operação de remoção registrada na pilha
+// Suporta dois tipos: participante e atividade
+// ---------------------------------------------
 void desfazer_remocao() {
     if (pilhaDesfazer == NULL) {
         printf("Pilha vazia, nada para desfazer.\n");
@@ -57,10 +75,9 @@ void desfazer_remocao() {
 
     NoPilha *temp = pilhaDesfazer;
 
-    // DESFAZER REMOÇÃO DE PARTICIPANTE
-    
+    // ---------- Desfazer Remoção de Participante ----------
     if (strcmp(temp->tipo, "participante") == 0) {
-        // Busca o evento salvo na pilha
+        // Localiza o evento onde o participante estava
         Evento *evento = buscar_evento(temp->evento_nome);
         if (!evento) {
             printf("Evento '%s' não encontrado ao desfazer.\n", temp->evento_nome);
@@ -77,7 +94,7 @@ void desfazer_remocao() {
             return;
         }
 
-        // Recria o participante
+        // Recria o participante usando os dados armazenados
         Participante *restaurado = criar_participante(temp->nome, temp->email, temp->infoExtra);
         if (!restaurado) {
             printf("Erro ao recriar participante.\n");
@@ -86,25 +103,25 @@ void desfazer_remocao() {
 
         // Reinsere o participante na lista original
         inserir_participante(&atividade->participantes, restaurado);
+
         printf("Desfazer realizado: participante '%s' foi restaurado na atividade '%s' do evento '%s'.\n",
                temp->nome, temp->atividade_titulo, temp->evento_nome);
     }
 
-    // DESFAZER REMOÇÃO DE ATIVIDADE
-
+    // ---------- Desfazer Remoção de Atividade ----------
     else if (strcmp(temp->tipo, "atividade") == 0) {
-        // Busca o evento onde a atividade foi originalmente cadastrada
+        // Localiza o evento onde a atividade foi removida
         Evento *evento = buscar_evento(temp->evento_nome);
         if (!evento) {
             printf("Evento '%s' não encontrado ao desfazer.\n", temp->evento_nome);
             return;
         }
 
-        // Converte o horário salvo como string para inteiro
+        // Converte o horário salvo (string) de volta para inteiro
         int hora;
         sscanf(temp->infoExtra, "%d", &hora);
 
-        // Recria a atividade com base nos dados salvos
+        // Recria a atividade com os dados salvos
         Atividade *nova = criarAtividade(temp->nome, hora);
         if (!nova) {
             printf("Erro ao recriar atividade.\n");
@@ -113,11 +130,12 @@ void desfazer_remocao() {
 
         // Reinsere a atividade na lista do evento
         inserirAtividade(&evento->atividades, nova);
+
         printf("Desfazer realizado: atividade '%s' foi restaurada no evento '%s'.\n",
                temp->nome, temp->evento_nome);
     }
 
-    // Finaliza: remove o topo da pilha
+    // ---------- Remoção do topo da pilha ----------
     pilhaDesfazer = temp->prox;
-    free(temp);
+    free(temp);  // Libera memória do item restaurado
 }
