@@ -163,4 +163,3 @@ empilhar(&pilhaDesfazer, "atividade", atual->titulo, "-", horario_str, "-", even
     free(atual);
     printf("Atividade '%s' removida com sucesso.\n", titulo);
 }
-
