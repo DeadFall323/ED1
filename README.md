@@ -34,7 +34,7 @@ O sistema permite cadastrar eventos, atividades e participantes, além de realiz
 ## 4. Estrutura de Pastas
 
 ED1/
-├── main.c
+|
 ├── headers/
 │ └── *.h
 ├── source/
@@ -47,11 +47,13 @@ ED1/
 
 **Pré-requisitos:** gcc instalado
 
-```bash
-cd source
-gcc *.c -I../headers -o main
-./main```
-
+Ao iniciar o projeto, va para a pasta source com o terminal
+```cd /source```
+Com isso, voce pode iniciar a compilacao do projeto com o comando:
+```
+gcc *.c -o main
+```
+Com este comando o compilador ira rodar os arquivos .c , iniciando o sistema de gerenciamento de eventos.
 
 ---
 
@@ -76,7 +78,7 @@ As interações são feitas por número e exibidas no terminal.
 Desenvolvido por:
 
 - Geovana Santos
-- Kawan Sousa
+- Kawan Dias
  - Mariany Aparecida 
  - Simão de Carvalho 
 
