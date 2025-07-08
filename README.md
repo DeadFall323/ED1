@@ -1,5 +1,7 @@
 # Sistema de Gerenciamento de Eventos Acadêmicos
 
+## Link para o Repositorio: https://github.com/DeadFall323/ED1
+
 ## 1. Sobre o Projeto
 
 Este projeto foi desenvolvido como trabalho final da disciplina **Estrutura de Dados I**, com o objetivo de aplicar conceitos como listas, filas, pilhas e algoritmos de ordenação.
@@ -86,5 +88,6 @@ Desenvolvido por:
 Disciplina: Estrutura de Dados I  
 Universidade Federal do Piauí – UFPI  
 Professor: [Leonardo Pio]
+
 
 ---
