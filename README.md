@@ -50,7 +50,7 @@ ED1/
 ```bash
 cd source
 gcc *.c -I../headers -o main
-./main
+./main```
 
 
 ---
