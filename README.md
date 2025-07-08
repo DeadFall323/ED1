@@ -61,13 +61,28 @@ O sistema funciona por menus interativos no terminal. Ao iniciar o programa, o u
 
 Cada opção leva a um submenu:
 
-- Eventos: permite cadastrar, listar e remover eventos
-- Atividades: após escolher um evento, permite cadastrar, listar, remover e ordenar atividades
-- Participantes: após escolher um evento e atividade, permite cadastrar, listar, remover e ordenar participantes
-- Check-in: permite realizar check-ins, listar a fila, chamar o próximo e ver o histórico
-- Desfazer: desfaz a última remoção registrada
+- **Eventos:** permite cadastrar, listar e remover eventos  
+- **Atividades:** após escolher um evento, permite cadastrar, listar, remover e ordenar atividades  
+- **Participantes:** após escolher um evento e atividade, permite cadastrar, listar, remover e ordenar participantes  
+- **Check-in:** permite realizar check-in, listar a fila, chamar o próximo e ver o histórico  
+- **Desfazer:** desfaz a última remoção registrada  
 
-As interações são todas feitas por número e exibidas no terminal.
+As interações são feitas por número e exibidas no terminal.
 
 ---
 
+## 7. Créditos
+
+Desenvolvido por:
+
+- Geovana Santos
+- Kawan Sousa
+ - Mariany Aparecida 
+ - Simão de Carvalho 
+
+
+Disciplina: Estrutura de Dados I  
+Universidade Federal do Piauí – UFPI  
+Professor: [Leonardo Pio]
+
+---
