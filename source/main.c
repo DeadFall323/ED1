@@ -7,7 +7,6 @@
 #include "../headers/atividades.h"
 #include "../headers/checkin.h"
 #include "../headers/desfazer.h"
-#include "../headers/ordenacao.h"
 #include "../headers/participantes.h"
 
 // Variáveis globais compartilhadas entre os módulos
@@ -94,24 +93,24 @@ void menu_atividades() {
         return;
     }
 // Lista os eventos existentes para o usuário escolher
-printf("\nEventos Cadastrados:\n");
-Evento *temp = inicio;
-int count = 1;
-Evento *listaEventos[50];
-do {
-    printf("%d. %s - %s\n", count, temp->nome, temp->data);
-    listaEventos[count - 1] = temp;
-    temp = temp->prox;
-    count++;
-} while (temp != inicio && count <= 50);
+	printf("\nEventos Cadastrados:\n");
+	Evento *temp = inicio;
+	int count = 1;
+	Evento *listaEventos[50];
+	do {
+    	printf("%d. %s - %s\n", count, temp->nome, temp->data);
+    	listaEventos[count - 1] = temp;
+    	temp = temp->prox;
+    	count++;
+	} while (temp != inicio && count <= 50);
 
-// Escolher por número
-printf("Digite o número do evento: ");
-int escolhaEvento;
-scanf("%d", &escolhaEvento);
-getchar();
+	// Escolher por número
+	printf("Digite o número do evento: ");
+	int escolhaEvento;
+	scanf("%d", &escolhaEvento);
+	getchar();
 
-Evento *eventoSelecionado = listaEventos[escolhaEvento - 1];
+	Evento *eventoSelecionado = listaEventos[escolhaEvento - 1];
 
     if (count == 1) {
         printf("Nenhum evento cadastrado.\n");
@@ -119,17 +118,17 @@ Evento *eventoSelecionado = listaEventos[escolhaEvento - 1];
     }
 
     // Usuário escolhe qual evento vai gerenciar
-    int escolhaEvento;
-    printf("Digite o número do evento: ");
-    scanf("%d", &escolhaEvento);
-    getchar();
+    //int escolhaEvento;
+    //printf("Digite o número do evento: ");
+    //scanf("%d", &escolhaEvento);
+    //getchar();
 
     if (escolhaEvento < 1 || escolhaEvento >= count) {
         printf("Evento inválido.\n");
         return;
     }
 
-    Evento *eventoSelecionado = listaEventos[escolhaEvento - 1];
+    //Evento *eventoSelecionado = listaEventos[escolhaEvento - 1];
 
     int opcao;
     char titulo[100];
