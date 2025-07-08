@@ -53,11 +53,10 @@ void cadastrar_evento(){
         printf("\nErro ao alocar memoria\n");
         return;
     }
-
     // Leitura do nome do evento
     printf("Digite o nome do evento: ");
     fgets(novo->nome, MAX_NOME, stdin);
-    novo->nome[strcspn(novo->nome, "\n")] = '\0';  // Remove o '\n' final
+    novo->nome[strcspn(novo->nome, "\n")] = '\0';  // Remover o '\n' final
 
     if (!validar_nome(novo->nome)) {
         printf("\nNome invalido!\n");

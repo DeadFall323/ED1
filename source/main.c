@@ -90,6 +90,8 @@ void menu_atividades() {
     }
 
     char nome_evento[100];
+    printf("Selecione o Evento a ser editado:\n");
+    listar_eventos();
     printf("Digite o nome do evento para gerenciar as atividades: ");
     fgets(nome_evento, sizeof(nome_evento), stdin);
     nome_evento[strcspn(nome_evento, "\n")] = 0;
@@ -121,7 +123,7 @@ void menu_atividades() {
                 fgets(titulo, sizeof(titulo), stdin);
                 titulo[strcspn(titulo, "\n")] = 0;
 
-                printf("Digite o horario (formato HHMM): ");
+                printf("Digite o horario no formato HHMM (Ex: 16:00 fica 1600): ");
                 scanf("%d", &hora);
                 getchar();
 
