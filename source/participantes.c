@@ -9,7 +9,7 @@
 #include "../headers/participantes.h"
 #include "../headers/eventos.h"
 #include "../headers/atividades.h"
-#include "../headers/desfazer.h" // Necessário para registrar operações na pilha de desfazer
+#include "../headers/desfazer.h"
 
 // Ponteiros globais
 extern Evento *inicio;
@@ -126,7 +126,8 @@ int validar_email(const char *email) {
 }
 
 // Verifica se a matrícula contém apenas números e tem tamanho aceitável
-// O tamanho mínimo pode ser ajustado alterando a variável abaixo
+// O tamanho mínimo pode ser ajustado alterando a variável abaixo tamanho_matricula
+// coloquei um valor pequeno para ajudar nos testes e nao padronizei um tamanho fixo
 int validar_matricula(const char *matricula) {
     int len = strlen(matricula);
     int tamanho_matricula = 5;

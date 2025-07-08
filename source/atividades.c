@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../headers/atividades.h"
-#include "../headers/desfazer.h"  // Inclusão para permitir o uso da pilha de desfazer
+#include "../headers/desfazer.h"
 
 // A pilha de desfazer é declarada externamente para ser compartilhada entre os arquivos
 extern NoPilha *pilhaDesfazer;  

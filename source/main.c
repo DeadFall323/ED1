@@ -269,11 +269,11 @@ void menu_participantes() {
                 fgets(nome, sizeof(nome), stdin);
                 nome[strcspn(nome, "\n")] = '\0';
 
-                printf("Digite o email: ");
+                printf("Digite o email:(inclua '@' e '.') ");
                 fgets(email, sizeof(email), stdin);
                 email[strcspn(email, "\n")] = '\0';
 
-                printf("Digite a matricula: ");
+                printf("Digite a matricula: (5 a 20 caracteres)");
                 fgets(matricula, sizeof(matricula), stdin);
                 matricula[strcspn(matricula, "\n")] = '\0';
 
@@ -297,7 +297,7 @@ void menu_participantes() {
 
             case 4:
                 ordenar_participantes_bubble(lista_participantes);
-                printf("Participantes ordenados por nome.\n");
+                printf("Participantes ordenados por nome.(Bubble Sort)\n");
                 break;
 
             case 0:
