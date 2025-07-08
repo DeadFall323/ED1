@@ -32,14 +32,14 @@ O sistema permite cadastrar eventos, atividades e participantes, além de realiz
 ---
 
 ## 4. Estrutura de Pastas
-
+```
 ED1/
 |
 ├── headers/
-│ └── *.h
+│    └── *.h
 ├── source/
-│ └── *.c
-
+│       └── *.c
+```
 
 ---
 
