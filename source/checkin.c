@@ -6,6 +6,9 @@
 #include "../headers/atividades.h"
 #include "../headers/participantes.h"
 
+// Lista global que armazena participantes que já passaram pelo check-in
+extern NoAtendido *checkinsRealizados;
+
 // --------------------------------------
 // Função: inicializarFila
 // Objetivo: Inicializa a fila de check-in, definindo início e fim como NULL
@@ -25,11 +28,11 @@ void enfileirar(Fila *fila, Participante *p) {
     novo->prox = NULL;
 
     if (fila->fim == NULL) {
-        // Fila vazia: o novo nó será o primeiro
+        // Caso a fila esteja vazia, o novo nó será o primeiro
         fila->inicio = novo;
         fila->fim = novo;
     } else {
-        // Fila já tem elementos: adiciona ao final
+        // Caso já existam participantes, adiciona ao final da fila
         fila->fim->prox = novo;
         fila->fim = novo;
     }
@@ -46,19 +49,23 @@ void desenfileirar(Fila *fila) {
     }
 
     NoFila *temp = fila->inicio;
+    Participante *atendido = temp->participante;
 
-    // Exibe quem está sendo removido da fila
-    printf("Removendo da fila: %s - %s\n", temp->participante->nome, temp->participante->matricula);
+    printf("Removendo da fila: %s - %s\n", atendido->nome, atendido->matricula);
 
-    // Atualiza o ponteiro de início para o próximo da fila
+    // Atualiza o início da fila para o próximo participante
     fila->inicio = fila->inicio->prox;
 
-    // Se a fila ficou vazia após a remoção, zera o fim também
+    // Se a fila ficar vazia após a remoção, zera o fim também
     if (fila->inicio == NULL) {
         fila->fim = NULL;
     }
 
-    free(temp);  // Libera memória do nó removido
+    // Adiciona o participante removido ao histórico de check-ins
+    adicionarAoHistorico(&checkinsRealizados, atendido);
+
+    // Libera apenas o nó da fila (não o participante, pois ele ainda será usado)
+    free(temp);
 }
 
 // --------------------------------------
@@ -82,5 +89,39 @@ void listarFila(Fila *fila) {
                aux->participante->matricula,
                aux->participante->email);
         aux = aux->prox;
+    }
+}
+
+// --------------------------------------
+// Função: adicionarAoHistorico
+// Objetivo: Armazena um participante na lista de check-ins realizados
+// --------------------------------------
+void adicionarAoHistorico(NoAtendido **lista, Participante *p) {
+    NoAtendido *novo = (NoAtendido *)malloc(sizeof(NoAtendido));
+    if (!novo) return;
+
+    novo->participante = p;
+    novo->prox = *lista;  // Insere no início da lista
+    *lista = novo;
+}
+
+// --------------------------------------
+// Função: listarCheckinsRealizados
+// Objetivo: Exibe todos os participantes que já realizaram o check-in
+// --------------------------------------
+void listarCheckinsRealizados(NoAtendido *lista) {
+    if (!lista) {
+        printf("Nenhum participante foi atendido ainda.\n");
+        return;
+    }
+
+    printf("\n--- Participantes que já fizeram check-in ---\n");
+    NoAtendido *atual = lista;
+    while (atual) {
+        printf("Nome: %s | Matrícula: %s | Email: %s\n",
+               atual->participante->nome,
+               atual->participante->matricula,
+               atual->participante->email);
+        atual = atual->prox;
     }
 }

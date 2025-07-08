@@ -1,11 +1,8 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-
-// Bibliotecas do sistema
-
+// Inclusão dos cabeçalhos das estruturas e módulos do sistema
 #include "../headers/eventos.h"
 #include "../headers/atividades.h"
 #include "../headers/checkin.h"
@@ -13,27 +10,30 @@
 #include "../headers/ordenacao.h"
 #include "../headers/participantes.h"
 
-// Variáveis globais externas
-extern NoPilha *pilhaDesfazer;
-extern Evento *inicio; // Declarada em eventos.c
+// Variáveis globais compartilhadas entre os módulos
+extern NoPilha *pilhaDesfazer;       // Pilha global para desfazer ações
+extern Evento *inicio;               // Lista circular de eventos (declarada em eventos.c)
+NoAtendido *checkinsRealizados = NULL; // Lista de participantes que já fizeram check-in
 
-// Protótipos de menus
+// Protótipos dos menus de cada funcionalidade
 void menu_participantes();
 void menu_eventos();
 void menuCheckin(Fila *filaCheckin, Evento *listaEventos);
 void menu_atividades();
 
-// Função principal
+/*
+ * Função principal: ponto de entrada do programa
+ * Exibe o menu principal e chama os submenus conforme a escolha do usuário
+ */
 int main() {
-    // Criação das estruturas principais
+    // Inicializa a fila de check-in e a pilha de desfazer
     Fila filaCheckin;
     inicializarFila(&filaCheckin);
-
-    inicializarPilha(&pilhaDesfazer); // Inicializa a pilha global de desfazer
+    inicializarPilha(&pilhaDesfazer);
 
     int opcao;
     do {
-        // Menu principal do sistema
+        // Menu principal com opções do sistema
         printf("\n--- SISTEMA DE EVENTOS ACADÊMICOS ---\n");
         printf("1. Gerenciar Eventos\n");
         printf("2. Gerenciar Atividades\n");
@@ -43,8 +43,9 @@ int main() {
         printf("0. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
-        while(getchar() != '\n'); // Limpa o buffer
+        while(getchar() != '\n'); // Limpa o buffer do teclado
 
+        // Direciona para o menu apropriado
         switch(opcao) {
             case 1: menu_eventos(); break;
             case 2: menu_atividades(); break;
@@ -59,7 +60,9 @@ int main() {
     return 0;
 }
 
-// Menu para gerenciamento de eventos
+// ------------------------- MENU EVENTOS -------------------------
+
+// Exibe o menu de gerenciamento de eventos
 void menu_eventos(){
     int opcao;
     do{
@@ -70,7 +73,7 @@ void menu_eventos(){
         printf("0. Voltar\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
-        getchar();
+        getchar(); // Limpa o buffer
 
         switch(opcao){
             case 1: cadastrar_evento(); break;
@@ -82,30 +85,57 @@ void menu_eventos(){
     } while(opcao != 0);
 }
 
-// Menu para gerenciamento de atividades de um evento
+// ------------------------- MENU ATIVIDADES -------------------------
+
+// Permite gerenciar atividades dentro de um evento
 void menu_atividades() {
     if (!inicio) {
         printf("Nenhum evento cadastrado. Cadastre um evento primeiro.\n");
         return;
     }
+// Lista os eventos existentes para o usuário escolher
+printf("\nEventos Cadastrados:\n");
+Evento *temp = inicio;
+int count = 1;
+Evento *listaEventos[50];
+do {
+    printf("%d. %s - %s\n", count, temp->nome, temp->data);
+    listaEventos[count - 1] = temp;
+    temp = temp->prox;
+    count++;
+} while (temp != inicio && count <= 50);
 
-    char nome_evento[100];
-    printf("Selecione o Evento a ser editado:\n");
-    listar_eventos();
-    printf("Digite o nome do evento para gerenciar as atividades: ");
-    fgets(nome_evento, sizeof(nome_evento), stdin);
-    nome_evento[strcspn(nome_evento, "\n")] = 0;
+// Escolher por número
+printf("Digite o número do evento: ");
+int escolhaEvento;
+scanf("%d", &escolhaEvento);
+getchar();
 
-    Evento *eventoSelecionado = buscar_evento(nome_evento);
-    if (!eventoSelecionado) {
-        printf("Evento '%s' nao encontrado.\n", nome_evento);
+Evento *eventoSelecionado = listaEventos[escolhaEvento - 1];
+
+    if (count == 1) {
+        printf("Nenhum evento cadastrado.\n");
         return;
     }
+
+    // Usuário escolhe qual evento vai gerenciar
+    int escolhaEvento;
+    printf("Digite o número do evento: ");
+    scanf("%d", &escolhaEvento);
+    getchar();
+
+    if (escolhaEvento < 1 || escolhaEvento >= count) {
+        printf("Evento inválido.\n");
+        return;
+    }
+
+    Evento *eventoSelecionado = listaEventos[escolhaEvento - 1];
 
     int opcao;
     char titulo[100];
     int hora;
 
+    // Menu de atividades do evento escolhido
     do {
         printf("\n--- MENU DE ATIVIDADES DO EVENTO: %s ---\n", eventoSelecionado->nome);
         printf("1. Cadastrar Atividade\n");
@@ -158,44 +188,71 @@ void menu_atividades() {
     } while(opcao != 0);
 }
 
-// Menu para gerenciamento de participantes em uma atividade
+// ------------------------- MENU PARTICIPANTES -------------------------
+
+// Gerencia os participantes dentro de uma atividade de um evento
 void menu_participantes() {
     if (!inicio) {
         printf("Nenhum evento cadastrado. Cadastre um evento primeiro.\n");
         return;
     }
 
-    char nome_evento[100], titulo_atividade[100];
+    // Lista eventos para o usuário selecionar
+    Evento *e = inicio;
+    Evento *listaEventos[50];
+    int totalEventos = 0;
+    int i = 1;
+    printf("\nEventos Cadastrados:\n");
+    do {
+        printf("%d. %s - %s\n", i, e->nome, e->data);
+        listaEventos[totalEventos++] = e;
+        e = e->prox;
+        i++;
+    } while (e != inicio);
 
-    listar_eventos();
-    printf("Digite o nome do evento: ");
-    fgets(nome_evento, sizeof(nome_evento), stdin);
-    nome_evento[strcspn(nome_evento, "\n")] = '\0';
+    int escolhaEvento;
+    printf("Digite o número do evento: ");
+    scanf("%d", &escolhaEvento);
+    getchar();
+    if (escolhaEvento < 1 || escolhaEvento > totalEventos) {
+        printf("Evento inválido!\n");
+        return;
+    }
+    Evento *evento = listaEventos[escolhaEvento - 1];
 
-    Evento *evento = buscar_evento(nome_evento);
-    if (!evento) {
-        printf("Evento não encontrado!\n");
+    // Lista atividades do evento
+    Atividade *a = evento->atividades;
+    if (!a) {
+        printf("Esse evento não possui atividades cadastradas.\n");
         return;
     }
 
-    printf("Digite o título da atividade: ");
-    fgets(titulo_atividade, sizeof(titulo_atividade), stdin);
-    titulo_atividade[strcspn(titulo_atividade, "\n")] = '\0';
+    Atividade *listaAtividades[50];
+    int idx = 0;
+    printf("\nAtividades do evento %s:\n", evento->nome);
+    while (a && idx < 50) {
+        printf("%d - %s (%s)\n", idx + 1, a->titulo, a->horario);
+        listaAtividades[idx++] = a;
+        a = a->prox;
+    }
 
-    Atividade *atividade = evento->atividades;
-    while (atividade && strcmp(atividade->titulo, titulo_atividade) != 0)
-        atividade = atividade->prox;
+    int escolha;
+    printf("Digite o número da atividade: ");
+    scanf("%d", &escolha);
+    getchar();
 
-    if (!atividade) {
-        printf("Atividade não encontrada!\n");
+    if (escolha < 1 || escolha > idx) {
+        printf("Atividade inválida.\n");
         return;
     }
+    Atividade *atividade = listaAtividades[escolha - 1];
 
     Participante **lista_participantes = &atividade->participantes;
 
     int opcao;
     char nome[100], email[100], matricula[20];
 
+    // Menu de ações com os participantes
     do {
         printf("\n--- MENU DE PARTICIPANTES DA ATIVIDADE '%s' ---\n", atividade->titulo);
         printf("1. Cadastrar Participante\n");
@@ -255,7 +312,9 @@ void menu_participantes() {
     } while(opcao != 0);
 }
 
-// Verifica se o participante já está na fila de check-in
+// ------------------------- CHECK-IN -------------------------
+
+// Verifica se o participante já está na fila para evitar duplicidade
 int participante_ja_na_fila(Fila *fila, Participante *p) {
     NoFila *atual = fila->inicio;
     while (atual) {
@@ -266,14 +325,14 @@ int participante_ja_na_fila(Fila *fila, Participante *p) {
     return 0;
 }
 
-// Realiza o processo de check-in por evento e atividade
-// Usuário escolhe qual participante enfileirar
+// Realiza o processo de check-in: evento → atividade → participante
 void realizarCheckin(Fila *fila, Evento *listaEventos) {
     if (!listaEventos) {
         printf("Nenhum evento disponível.\n");
         return;
     }
 
+    // Seleção do evento
     printf("\n=== Eventos Disponíveis ===\n");
     Evento *e = listaEventos;
     int i = 1;
@@ -291,6 +350,7 @@ void realizarCheckin(Fila *fila, Evento *listaEventos) {
     for (int j = 1; j < escolhaEvento; j++) e = e->prox;
     Evento *eventoSelecionado = e;
 
+    // Seleção da atividade
     Atividade *a = eventoSelecionado->atividades;
     if (!a) {
         printf("Este evento não possui atividades.\n");
@@ -319,6 +379,7 @@ void realizarCheckin(Fila *fila, Evento *listaEventos) {
         return;
     }
 
+    // Exibe participantes disponíveis para check-in
     Participante *listaParticipantes[100];
     int total = 0;
     printf("\n=== Participantes Cadastrados ===\n");
@@ -328,6 +389,7 @@ void realizarCheckin(Fila *fila, Evento *listaEventos) {
         p = p->prox;
     }
 
+    // Usuário escolhe quem fará check-in
     char continuar = 's';
     while (continuar == 's' || continuar == 'S') {
         printf("Digite o número do participante que chegou (0 para sair): ");
@@ -355,7 +417,7 @@ void realizarCheckin(Fila *fila, Evento *listaEventos) {
     }
 }
 
-// Menu de ações relacionadas ao check-in
+// Menu principal do check-in: permite enfileirar, listar, chamar e ver histórico
 void menuCheckin(Fila *filaCheckin, Evento *listaEventos) {
     int opcao;
     do {
@@ -363,6 +425,7 @@ void menuCheckin(Fila *filaCheckin, Evento *listaEventos) {
         printf("1 - Fazer check-in\n");
         printf("2 - Listar fila de check-in\n");
         printf("3 - Chamar próximo da fila\n");
+        printf("4 - Listar participantes que já fizeram check-in\n");
         printf("0 - Voltar\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
@@ -372,6 +435,7 @@ void menuCheckin(Fila *filaCheckin, Evento *listaEventos) {
             case 1: realizarCheckin(filaCheckin, listaEventos); break;
             case 2: listarFila(filaCheckin); break;
             case 3: desenfileirar(filaCheckin); break;
+            case 4: listarCheckinsRealizados(checkinsRealizados); break;
             case 0: printf("Voltando ao menu anterior...\n"); break;
             default: printf("Opção inválida!\n");
         }
